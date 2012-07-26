@@ -19,28 +19,39 @@
         <div class="content">
             <div class="page-header main-header">
 	            <div class="btn-toolbar">
-	                
 	                <div class="btn-group">
-	                    <a href="new.html" class="btn">Nouveau</a>
+	                    <a href="../connected.html" class="btn">Retour</a>
 	                </div>
-	                    
+	                
 	                <div class="btn-group">
                         <button class="btn dropdown-toggle" data-toggle="dropdown">
                             F. Monniot <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="my/account.html">Mon compte</a></li>
-                            <li><a href="my/events.html">Mes Évènements</a></li>
+                            <li><a href="/prototype/my/account.html">Mon compte</a></li>
+                            <li><a href="/prototype/my/events.html">Mes Évènements</a></li>
                         </ul>
                             
 	                </div>
-	        </div>
-	            <h1>Calendrier Agnetz Tir à l'arc</h1>
+	            </div>
+	            <h1>Agnetz Tir à l'arc: Mes évènements</h1>
             </div>
             <div class="row">
-                <div class="page-header span10 offset1">
-                    <h3>Prochains Évènement <small>Que se passe-t-il au club ces prochaines semaines ?</small></h3>
+                <div class="page-header span8 offset1">
+                    <h3>Mes prochains Évènement <small>Qu'organise-je au club ces prochaines semaines ?</small></h3>
                 </div>
+                
+	            <form class="btn-group form-horizontal span3" action="" method="post">
+	                <fieldset>
+	                    <legend>Affichage</legend>
+	                    <label class="checkbox">
+                            <input type="checkbox" checked="checked">Évènements créés
+                        </label>
+	                    <label class="checkbox">
+                            <input type="checkbox" checked="checked">Évènements édités
+                        </label>
+                    </fieldset>
+	            </form>
             </div>
             <div class="row">
                 <table class="table span10 offset1 list">
@@ -121,27 +132,6 @@
 
 
             </div>
-            <div class="row">
-                <div class="page-header span10 offset1">
-                    <h3>Nouveautés <small>Un aperçu des dernières fonctionnalitées</small></h3>
-                </div>
-            </div>
-            
-            <div class="row">
-                <dl class="span8 offset2">
-                    <!--
-                    <dt>-- ---- 2012</dt>
-                    <dd><ul class="unstyled">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul></dd>
-                    -->
-                    <dt>26 juillet 2012</dt>
-                    <dd>Site statique (prévisualisation de l'apparence)</dd>
-                </dl>
-            </div>
         </div>
     
         <div class="footer">
@@ -154,8 +144,6 @@
         </div>
     </div> <!-- /container -->
     
-    
-
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
