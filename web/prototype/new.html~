@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/prototype/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet" media="all" />
+    <link href="/prototype/bootstrap/css/bootstrap-responsive.css" type="text/css" rel="stylesheet" media="all" />
+    <link href="/prototype/style-custom.css" type="text/css" rel="stylesheet" media="all" />
+  
+    <link rel="shortcut icon" href="/favicon.ico" />
+    
+    <title>Nouvel évènement - Agnetz Tir à l'arc</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="page-header">
+	            <div class="btn-toolbar">
+	                <div class="btn-group">
+	                    <a href="connected.html" class="btn">Retour</a>
+	                    <a href="#" class="btn disabled">F. Monniot</a>
+	                </div>
+	        </div>
+	            <h1>Agnetz Tir à l'arc: Nouvel évènement</h1>
+            </div>
+
+            <div class="row">
+                <form action="" method="post" class="form-horizontal span10 offset1">
+                    <fieldset>
+                        <legend>Informations obligatoires</legend>
+                        
+                        <div class="row-fluid">
+                            <div class="control-group span6">
+                                <label class="control-label" for="input01">Date de début</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge" id="input01">
+                                </div>
+                            </div>
+                            <div class="control-group span6">
+                                <label class="control-label" for="input02">Heure de début</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge" id="input02">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="input03">Lieu</label>
+                            <div class="controls">
+                                <input type="text" class="input-xlarge" id="input03">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="textarea">Description</label>
+                            <div class="controls">
+                                <textarea class="span8" id="textarea" rows="3"></textarea>
+                                <p class="help-block">
+                                    En bas de page se trouve des codes qui vous permettront d'améliorer le rendu de vos descriptions, libre à vous de les utiliser.
+                                </p>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Informations complémentaires</legend>
+                        
+                        <div class="row-fluid">
+                            <div class="control-group span6">
+                                <label class="control-label" for="input11">Date de fin</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge" id="input11">
+                                </div>
+                            </div>
+                            <div class="control-group span6">
+                                <label class="control-label" for="input12">Heure de fin</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge" id="input12">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="input13">Lien <em>Plus d'information</em></label>
+                            <div class="controls">
+                                <input type="text" class="input-xlarge" id="input13">
+                                <p class="help-block">Laisser le champ vide n'affichera pas l'icone "<i class="icon-chevron-right"></i>"</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="optionsRadios">Visibilité</label>
+                            <div class="controls">
+                                <label class="radio">
+                                    <input name="optionsRadios" id="optionsRadios1" value="0" checked="checked" type="radio">
+                                    Publique — Tout visiteur peut voir l'évènement
+                                </label>
+                                <label class="radio">
+                                    <input name="optionsRadios" id="optionsRadios2" value="5" type="radio">
+                                    Bureau — Seul les membres du bureau pourront voir l'évènement
+                                </label>
+                                <label class="radio">
+                                    <input name="optionsRadios" id="optionsRadios3" value="10" type="radio">
+                                    Privé — Vous serez le seul à voir l'évènement
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="form-actions btn-grou">
+                        <button type="submit" class="btn btn-primary">Créer</button>
+                        <button type="reset" class="btn">Recommencer</button>
+                    </div>
+                    <hr/>
+                    <fieldset>
+                        <legend>Aide</legend>
+                        <p>Vous pouvez utiliser les codes ci-dessous afin d'ajouter des couleurs à vos descriptions (<span class="label label-warning">Concours 3D</span> par exemple)</p>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Résultat</th>
+                                    <th>Code</th>
+                                </tr>
+                                </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="label">Default</span></td>
+                                    <td><code>&lt;span class="label"&gt;Default&lt;/span&gt;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="label label-warning">Warning</span></td>
+                                <td><code>&lt;span class="label label-warning"&gt;Warning&lt;/span&gt;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="label label-important">Important</span></td>
+                                    <td><code>&lt;span class="label label-important"&gt;Important&lt;/span&gt;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="label label-info">Info</span></td>
+                                    <td><code>&lt;span class="label label-info"&gt;Info&lt;/span&gt;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="label label-inverse">Inverse</span></td>
+                                    <td><code>&lt;span class="label label-inverse"&gt;Inverse&lt;/span&gt;</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    
+        <div class="footer">
+            <p>
+	            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">
+				    <img alt="Creative Commons License" style="border-width:0" src="/app_dev.php/images/cc-by-nc-sa_cc-by-nc-sa_1.png" />
+			    </a>
+	    Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 France License</a> - Source available on <a href="http://www.github.com/francoismonniot/asacalendar/">GitHub</a>
+            </p>
+        </div>
+    </div> <!-- /container -->
+</body>
+</html>
