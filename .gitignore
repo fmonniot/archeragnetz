@@ -1,3 +1,4 @@
+app/config/parameters.yml
 web/bundles/
 web/media/
 web/dev/*
@@ -7,7 +8,6 @@ app/logs/*
 build/
 vendor
 composer.phar
-app/config/parameters.yml
 
 ## generic files to ignore
 *~
