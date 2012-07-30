@@ -26,19 +26,7 @@
         <div class="content">
             <div class="page-header main-header">
 	            <div class="btn-toolbar">
-	            {% block page_header_toolbar %}
-	            
-                    <div class="btn-group" data-toggle="buttons-radio">
-                        <a href="#{{ path('FMCalendarBundle_homepage', {"display":"thumbnails"}) }}" class="btn disabled" title="Bientot disponible"><i class="icon-th"></i> Vignettes</a>
-                        <a href="{{ path('FMCalendarBundle_homepage', {"display":"list"}) }}" class="btn active"><i class="icon-th-list"></i> Liste</a>
-                    </div>
-                    
-	                {% if is_granted('ROLE_USER') %}
-	                <div class="btn-group">
-	                    <a href="new.html" class="btn">Nouveau</a>
-	                </div>
-	                {% endif %}
-	                
+	            {% block page_header_toolbar %}	                
 	                <div class="btn-group">
 	                {% if is_granted('ROLE_USER') %}
                         <button class="btn dropdown-toggle" data-toggle="dropdown">
@@ -58,9 +46,9 @@
 	            <h1>{% block page_header_title %}Calendrier Agnetz Tir à l'arc{% endblock page_header_title %}</h1>
             </div>
             {% block content %}
-        </div>
            
             {% endblock content %}
+        </div>
         <div class="footer">
             <p>
 	            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">
