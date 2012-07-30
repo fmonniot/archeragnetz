@@ -19,6 +19,22 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+     
+     /**
+      * Surname
+      *
+      * @var string $surname
+      * @ORM\Column(name="surname", type="string", length=70, nullable=true)
+      **/
+     private $surname;
+     
+     /**
+      * First name
+      *
+      * @var string $firstname
+      * @ORM\Column(name="firstname", type="string", length=50, nullable=true)
+      **/
+     private $firstname;
     
     /**
      * Mobile Number (format +xxxxxxxxxxx)
@@ -54,28 +70,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set mobile
-     *
-     * @param integer $mobile
-     * @return User
-     */
-    public function setMobile($mobile)
-    {
-        $this->mobile = $mobile;
-        return $this;
-    }
-
-    /**
-     * Get mobile
-     *
-     * @return integer 
-     */
-    public function getMobile()
-    {
-        return $this->mobile;
-    }
-
-    /**
      * Add addresss
      *
      * @param FM\CalendarBundle\Entity\Address $addresss
@@ -105,5 +99,71 @@ class User extends BaseUser
     public function getAddresss()
     {
         return $this->addresss;
+    }
+
+    /**
+     * Set surname
+     *
+     * @param string $surname
+     * @return User
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+        return $this;
+    }
+
+    /**
+     * Get surname
+     *
+     * @return string 
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    /**
+     * Set firstname
+     *
+     * @param string $firstname
+     * @return User
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+        return $this;
+    }
+
+    /**
+     * Get firstname
+     *
+     * @return string 
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set mobile
+     *
+     * @param integer $mobile
+     * @return User
+     */
+    public function setMobile($mobile)
+    {
+        $this->mobile = $mobile;
+        return $this;
+    }
+
+    /**
+     * Get mobile
+     *
+     * @return integer 
+     */
+    public function getMobile()
+    {
+        return $this->mobile;
     }
 }
