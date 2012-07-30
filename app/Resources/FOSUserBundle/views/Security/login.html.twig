@@ -8,12 +8,12 @@
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                  
                 <div class="input-prepend">
-                    <label class="add-on span5" for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-                    <input class="span7" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Email" />
+                    <label class="add-on span5" for="username">Identifiant</label>
+                    <input class="span7" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Nom d'utilisateur ou email" />
                 </div>
                 <div class="input-prepend">
-                    <label class="add-on span5" for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-                    <input class="span7" type="password"  id="password" name="_password" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}">
+                    <label class="add-on span5" for="password">Mot de passe</label>
+                    <input class="span7" type="password"  id="password" name="_password" placeholder="Mot de passe">
                 </div>
                 <div class="remember-me">
                     <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
