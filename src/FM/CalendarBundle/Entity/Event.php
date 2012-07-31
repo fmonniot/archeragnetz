@@ -1,13 +1,14 @@
 <?php
-
+// src/FM/UserBundle/Entity/Event.php
 namespace FM\CalendarBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * FM\CalendarBundle\Entity\Event
  *
- * @ORM\Table(name="event")
+ * @ORM\Table(name="events")
  * @ORM\Entity(repositoryClass="FM\CalendarBundle\Entity\EventRepository")
  */
 class Event
@@ -25,22 +26,17 @@ class Event
      *
      * @var datetime $dtstart
      * @ORM\Column(name="dtstart", type="datetime")
+     *
+     * @Assert\NotBlank(message="Date de début obligatoire")
      */
     private $dtstart;
 
     /**
      *
      * @var datetime $dtend
-     * @ORM\Column(name="dtend", type="datetime")
+     * @ORM\Column(name="dtend", type="datetime", nullable=true)
      */
     private $dtend;
-
-    /**
-     *
-     * @var string $summary
-     * @ORM\Column(name="summary", type="string", length=150)
-     */
-    private $summary;
 
     /**
      *
@@ -51,38 +47,24 @@ class Event
 
     /**
      *
-     * @var string $categories
-     * @ORM\Column(name="categories", type="string", length=255)
-     */
-    private $categories;
-
-    /**
-     *
-     * @var string $status
-     * @ORM\Column(name="status", type="string", length=255)
-     */
-    private $status;
-
-    /**
-     *
      * @var text $description
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
     /**
      *
-     * @var string $transp
-     * @ORM\Column(name="transp", type="string", length=255)
-     */
-    private $transp;
-
-    /**
-     *
      * @var Calendar $calendar
      * @ORM\ManyToOne(targetEntity="Calendar", inversedBy="events")
-     **/
+     */
     private $calendar;
+    
+    /**
+     *
+     * @var string $moreInformation
+     * @ORM\Column(name="more_information", type="string", nullable=true)
+     */
+    private $moreInformation;
 
     /**
      * Get id
@@ -139,71 +121,27 @@ class Event
     }
 
     /**
-     * Set summary
+     * Set location
      *
-     * @param string $summary
+     * @param FM\CalendarBundle\Entity\Address $location
      * @return Event
      */
-    public function setSummary($summary)
+    public function setLocation(\FM\CalendarBundle\Entity\Address $location = null)
     {
-        $this->summary = $summary;
+        $this->location = $location;
         return $this;
     }
 
     /**
-     * Get summary
+     * Get location
      *
-     * @return string 
+     * @return FM\CalendarBundle\Entity\Address 
      */
-    public function getSummary()
+    public function getLocation()
     {
-        return $this->summary;
+        return $this->location;
     }
-
-    /**
-     * Set categories
-     *
-     * @param string $categories
-     * @return Event
-     */
-    public function setCategories($categories)
-    {
-        $this->categories = $categories;
-        return $this;
-    }
-
-    /**
-     * Get categories
-     *
-     * @return string 
-     */
-    public function getCategories()
-    {
-        return $this->categories;
-    }
-
-    /**
-     * Set status
-     *
-     * @param string $status
-     * @return Event
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-        return $this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return string 
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
+    
     /**
      * Set description
      *
@@ -227,50 +165,6 @@ class Event
     }
 
     /**
-     * Set transp
-     *
-     * @param string $transp
-     * @return Event
-     */
-    public function setTransp($transp)
-    {
-        $this->transp = $transp;
-        return $this;
-    }
-
-    /**
-     * Get transp
-     *
-     * @return string 
-     */
-    public function getTransp()
-    {
-        return $this->transp;
-    }
-
-    /**
-     * Set location
-     *
-     * @param FM\CalendarBundle\Entity\Address $location
-     * @return Event
-     */
-    public function setLocation(\FM\CalendarBundle\Entity\Address $location = null)
-    {
-        $this->location = $location;
-        return $this;
-    }
-
-    /**
-     * Get location
-     *
-     * @return FM\CalendarBundle\Entity\Address 
-     */
-    public function getLocation()
-    {
-        return $this->location;
-    }
-
-    /**
      * Set calendar
      *
      * @param FM\CalendarBundle\Entity\Calendar $calendar
@@ -278,6 +172,7 @@ class Event
      */
     public function setCalendar(\FM\CalendarBundle\Entity\Calendar $calendar = null)
     {
+        $calendar->addEvent($this);
         $this->calendar = $calendar;
         return $this;
     }
@@ -290,5 +185,27 @@ class Event
     public function getCalendar()
     {
         return $this->calendar;
+    }
+
+    /**
+     * Set moreInformation
+     *
+     * @param string $moreInformation
+     * @return Event
+     */
+    public function setMoreInformation($moreInformation)
+    {
+        $this->moreInformation = $moreInformation;
+        return $this;
+    }
+
+    /**
+     * Get moreInformation
+     *
+     * @return string 
+     */
+    public function getMoreInformation()
+    {
+        return $this->moreInformation;
     }
 }

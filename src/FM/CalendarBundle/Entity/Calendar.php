@@ -3,11 +3,12 @@
 namespace FM\CalendarBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * FM\CalendarBundle\Entity\Calendar
  *
- * @ORM\Table()
+ * @ORM\Table(name="calendars")
  * @ORM\Entity(repositoryClass="FM\CalendarBundle\Entity\CalendarRepository")
  */
 class Calendar
@@ -39,6 +40,7 @@ class Calendar
      *
      * @var datetime $created_at
      * @ORM\Column(name="created_at", type="datetime")
+     * @Gedmo\Timestampable(on="create")
      */
     private $created_at;
 
@@ -46,6 +48,7 @@ class Calendar
      *
      * @var datetime $updated_at
      * @ORM\Column(name="updated_at", type="datetime")
+     * @Gedmo\Timestampable(on="update")
      */
     private $updated_at;
 
@@ -131,14 +134,15 @@ class Calendar
     }
     
     /**
-     * Add events
+     * Add event
      *
-     * @param FM\CalendarBundle\Entity\Event $events
+     * @param FM\CalendarBundle\Entity\Event $event
      * @return Calendar
      */
-    public function addEvent(\FM\CalendarBundle\Entity\Event $events)
+    public function addEvent(\FM\CalendarBundle\Entity\Event $event)
     {
-        $this->events[] = $events;
+        $event->addCalendar($this);
+        $this->events[] = $event;
         return $this;
     }
 
