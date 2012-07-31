@@ -10,6 +10,12 @@
 {% endblock page_header_toolbar %}
 
 {% block content %}
+            {% for key, message in app.session.getFlashes() %}
+                <div class="alert {% if key == 'fos_user_success'%}alert-success{% else %}{{ key }}{% endif%}">
+                    <a class="close" data-dismiss="alert" href="#">&times;</a>
+                    {{ message|trans({}, 'FOSUserBundle') }}
+                </div>
+            {% endfor %}
             <div class="row">
                 <div class="page-header span10 offset1">
                     <h3>Mon profil <small>Que connait-on de moi ?</small></h3>
