@@ -107,26 +107,6 @@
             </div>
             
             {% if is_granted('ROLE_USER') %}
-            <div class="row">
-                <div class="page-header span10 offset1">
-                    <h3>Nouveautés <small>Un aperçu des dernières fonctionnalitées</small></h3>
-                </div>
-            </div>
-            
-            <div class="row">
-                <dl class="span8 offset2">
-                    <!--
-                    <dt>-- ---- 2012</dt>
-                    <dd><ul class="unstyled">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul></dd>
-                    -->
-                    <dt>26 juillet 2012</dt>
-                    <dd>Site statique (prévisualisation de l'apparence)</dd>
-                </dl>
-            </div>
+                {% include 'FMCalendarBundle:Default:changelog.html.twig' %}
             {% endif %}
         {% endblock content %}
