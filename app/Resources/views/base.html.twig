@@ -1,13 +1,77 @@
 <!DOCTYPE html>
+
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+{% block head_style %}
+  {% stylesheets filter="less,cssembed,cssrewrite" output="style.css"
+         '@FMCalendarBundle/Resources/public/less/style-custom.less'
+  %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
+  {% endstylesheets %}
+  
+{% endblock head_style %}
+    <link href="/prototype/style-custom.css" type="text/css" rel="stylesheet" media="all" />
+  
+    <link rel="shortcut icon" href="/favicon.ico" />
+    
+    <title>{% block title %} Calendrier ASA Tir à l'arc {% endblock title %}</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="page-header main-header">
+	            <div class="btn-toolbar">
+	            {% block page_header_toolbar %}	                
+	                <div class="btn-group">
+	                {% if is_granted('ROLE_USER') %}
+	                    {% block page_header_toolbar_account %}
+                        <button class="btn dropdown-toggle" data-toggle="dropdown">
+                            {% if app.user.surname %}{{ app.user.firstname }} {{ app.user.surname }}{% else %}{{ app.user }}{% endif %}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('fos_user_profile_show') }}">Mon compte</a></li>
+                            <li><a href="my/events.html">Mes Évènements</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+                        </ul>
+                        {% endblock page_header_toolbar_account %}
+	                {% else %}
+	                    <a class="btn" href="{{ path('fos_user_security_login') }}">Connexion</a>
+	                {% endif %}
+	                </div>
+	            {% endblock page_header_toolbar %}
+	            </div>
+	            <h1>{% block page_header_title %}Calendrier Agnetz Tir à l'arc{% endblock page_header_title %}</h1>
+            </div>
+            {% block content %}
+           
+            {% endblock content %}
+        </div>
+        <div class="footer">
+            <p>
+	            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">
+				    <img alt="Creative Commons License" style="border-width:0" src="/app_dev.php/images/cc-by-nc-sa_cc-by-nc-sa_1.png" />
+			    </a>
+	    Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 France License</a> - Source available on <a href="http://www.github.com/francoismonniot/asacalendar/">GitHub</a>
+            </p>
+        </div>
+    </div> <!-- /container -->
+    
+    
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+		{% javascripts
+		    '../app/Resources/public/js/libs/jquery/1.7.1/jquery.min.js'
+		    '../vendor/twitter/bootstrap/js/*.js'
+		%}
+			<script type="text/javascript" src="{{ asset_url }}"></script>
+		{% endjavascripts %}
+</body>
 </html>

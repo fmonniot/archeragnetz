@@ -1,3 +1,4 @@
+app/config/parameters.yml
 web/bundles/
 web/media/
 web/dev/*

@@ -1,0 +1,24 @@
+parameters:
+#    fm_calendar.example.class: FM\CalendarBundle\Example
+
+services:
+#    fm_calendar.example:
+#        class: %fm_calendar.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    fm_calendar.registration.form.type:
+        class:  FM\CalendarBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: fm_calendar_registration }
+            
+    fm_calendar.profile.form.type:
+        class:  FM\CalendarBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: fm_calendar_profile }
+            
+    fm_calendar.twig.fm_calendar_extension:
+        class: FM\CalendarBundle\Twig\UserExtension
+        tags:
+            - { name: twig.extension }

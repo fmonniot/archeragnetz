@@ -1,0 +1,3 @@
+FMCalendarBundle_homepage:
+    pattern:  /
+    defaults: { _controller: FMCalendarBundle:Default:index }

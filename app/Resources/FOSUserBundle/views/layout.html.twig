@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    {% block head_style %}
+      {% stylesheets filter="less,cssembed,cssrewrite" output="style.css"
+             '@FMCalendarBundle/Resources/public/less/style-custom.less'
+      %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
+      {% endstylesheets %}
+      
+    {% endblock head_style %}
+  
+    <link rel="shortcut icon" href="/favicon.ico" />
+    
+    <title>Connexion - Agnetz Tir à l'arc</title>
+</head>
+
+<body class="login">
+    <div class="container">
+        <div class="content">
+
+            <div class="page-header main-header">
+	            <h1>Agnetz Tir à l'arc - Calendrier</h1>
+                <h2>Connexion</h2>
+            </div>
+            
+            {% for key, message in app.session.getFlashes() %}
+                <div class="{{ key }}">
+                    {{ message|trans({}, 'FOSUserBundle') }}
+                </div>
+            {% endfor %}
+            
+            {% block content %}
+            <div class="row">
+                <div class="row-fluid">    
+                    {% block fos_user_content %}{% endblock %}
+                </div>
+            </div>
+            {% endblock content %}
+        </div>
+    
+        <div class="footer">
+            <p>
+	            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">
+				    <img alt="Creative Commons License" style="border-width:0" src="/app_dev.php/images/cc-by-nc-sa_cc-by-nc-sa_1.png" />
+			    </a>
+	    Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 France License</a> - Source available on <a href="http://www.github.com/francoismonniot/francois-monniot.fr/">GitHub</a>
+            </p>
+        </div>
+    </div> <!-- /container -->
+</body>
+</html>
+    

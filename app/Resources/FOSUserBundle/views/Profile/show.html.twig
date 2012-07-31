@@ -1,0 +1,75 @@
+{% extends "::base.html.twig" %}
+
+{% block page_header_toolbar %}                    
+	                {% if is_granted('ROLE_USER') %}
+	                <div class="btn-group">
+                        <a href="{{ path('FMCalendarBundle_homepage') }}" class="btn">Retour au Calendrier</a>
+	                    <a href="{{ path('fos_user_profile_edit') }}" class="btn">Modifier vos informations</a>
+	                </div>
+	                {% endif %}
+	                {{ parent() }}
+{% endblock page_header_toolbar %}
+
+{% block content %}
+            {% for key, message in app.session.getFlashes() %}
+                <div class="alert {% if key == 'fos_user_success'%}alert-success{% else %}{{ key }}{% endif%}">
+                    <a class="close" data-dismiss="alert" href="#">&times;</a>
+                    {{ message|trans({}, 'FOSUserBundle') }}
+                </div>
+            {% endfor %}
+            
+            <div class="row">
+                <div class="page-header span10 offset1">
+                    <h3>Mon profil <small>Que connait-on de moi ?</small></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4 offset2">
+                    <h3>Informations de connexions</h3>
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <th>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}</th>
+                                <td>{{ user.username }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}</th>
+                                <td>{{ user.email }}</td>
+                            </tr>
+                            <tr>
+                                <th>Mot de passe</th>
+                                <td><em>Crypté</em> <a href="{{ path('fos_user_change_password') }}" class="pull-right">Changer</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="span4">
+                    <h3>Informations personnels</h3>
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <th>Nom</th>
+                                <td>{% if app.user.surname %}{{ app.user.surname }}{% else %}<em>Non renseigné</em>{% endif %}</td>
+                            </tr>
+                            <tr>
+                                <th>Prénom</th>
+                                <td>{% if app.user.firstname %}{{ app.user.firstname }}{% else %}<em>Non renseigné</em>{% endif %}</td>
+                            </tr>
+                            <tr>
+                                <th>Adresse</th>
+                                <td>{% if false %}{{ app.user.address }}{% else %}<em>Non renseigné</em>{% endif %}</td>
+                            </tr>
+                            <tr>
+                                <th>Numéro de Mobile</th>
+                                <td>{% if app.user.mobile %}{{ app.user.mobile|phone(app.request.locale) }}{% else %}<em>Non renseigné</em>{% endif %}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <p class="span8 offset2" style="text-align:justify;"><small>
+                    Toute les données personnelles connus par le présent sont affiché sur la page actuelle et conformément à la loi n°78-17 du 6 janvier 1978, relative à l'informatique, aux Fichiers et aux Libertés, vous disposez d'un droit d'accès et de rectification des données à caractère personnel vous concernant et faisant l'objet de traitements par le présent site internet que vous pouvez exercer via le formulaire <a href="{{ path('fos_user_profile_edit') }}">Modifier vos informations</a>.</small>
+                </p>
+            </div>
+{% endblock content %}

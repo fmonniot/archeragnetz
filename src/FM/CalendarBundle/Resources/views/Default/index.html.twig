@@ -1,0 +1,132 @@
+{% extends '::base.html.twig' %}
+
+{% block page_header_toolbar %}
+                    <div class="btn-group" data-toggle="buttons-radio">
+                        <a href="#{{ path('FMCalendarBundle_homepage', {"display":"thumbnails"}) }}" class="btn disabled" title="Bientot disponible"><i class="icon-th"></i> Vignettes</a>
+                        <a href="{{ path('FMCalendarBundle_homepage', {"display":"list"}) }}" class="btn active"><i class="icon-th-list"></i> Liste</a>
+                    </div>
+                    
+	                {% if is_granted('ROLE_USER') %}
+	                <div class="btn-group">
+	                    <a href="new.html" class="btn">Nouveau</a>
+	                </div>
+	                {% endif %}
+	                {{ parent() }}
+{% endblock page_header_toolbar %}
+
+{% block content %}
+            <div class="row">
+                <div class="page-header span10 offset1">
+                    <h3>Prochains Évènement <small>Que se passe-t-il au club ces prochaines semaines ?</small></h3>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table span10 offset1 list">
+                    <thead>
+                        <tr>
+                            <th style="width:15%">Date</th>
+                            <th style="width:7%">Heure</th>
+                            <th style="width:18%">Lieu</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>25 juillet 2012</td>
+                            <td>20h00</td>
+                            <td>Salle Ste Agnès</td>
+                            <td>{% if is_granted('ROLE_USER') %}
+                                <span class="info">
+                                    <i class="icon-info-sign" title="Créé le 23 avril 2012 par F. Monniot
+Édité le 31 juin 2012 par F. Monniot"></i>
+                                    <a href="?event=1" title="Éditer cet évènement"><i class="icon-edit"></i></a>
+                                </span>
+                                {% endif %}
+                                <span class="label label-info">Entrainement</span> Adulte (estival)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>21 juillet 2012</td>
+                            <td>14h00</td>
+                            <td>Salle Ste Agnès</td>
+                            <td>{% if is_granted('ROLE_USER') %}
+                                <i class="icon-info-sign info" title="Créé le 23 avril 2012 par F. Monniot
+Édité le 31 juin 2012 par F. Monniot"></i>
+                                {% endif %}
+                                <span class="label label-important">Bureau</span> Inventaire du materiel
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>22 mai 2012</td>
+                            <td>08h00</td>
+                            <td>Chez Eric</td>
+                            <td>{% if is_granted('ROLE_USER') %}
+                                <i class="icon-info-sign info" title="Créé le 23 avril 2012 par F. Monniot
+Édité le 31 juin 2012 par F. Monniot"></i>
+                                {% endif %}
+                                <span class="label label-warning">Concours 3D</span> Charger les cibles dans l'utilitaire</td>
+                        </tr>
+                        <tr>
+                            <td>25 juillet 2012</td>
+                            <td>20h00</td>
+                            <td>Salle Ste Agnès</td>
+                            <td>{% if is_granted('ROLE_USER') %}
+                                <i class="icon-info-sign info" title="Créé le 23 avril 2012 par F. Monniot
+Édité le 31 juin 2012 par F. Monniot"></i>
+                                {% endif %}
+                                Sans badge
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>25 juillet 2012</td>
+                            <td>20h00</td>
+                            <td>Salle Ste Agnès</td>
+                            <td>{% if is_granted('ROLE_USER') %}
+                               <i class="icon-info-sign info" title="Créé le 23 avril 2012 par F. Monniot
+Édité le 31 juin 2012 par F. Monniot"></i>
+                                {% endif %}
+                                Ou avec des liens "Plus d'information". Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu mauris non magna ullamcorper faucibus. Duis hendrerit hendrerit odio, vitae pharetra arcu iaculis sed. Suspendisse potenti. Aenean porttitor purus vel nunc varius pharetra. Etiam scelerisque dignissim elit id porta. Sed consectetur venenatis porttitor. Proin pellentesque ante in arcu fermentum a.
+                                <a href="?more" class="pull-right" title="Plus d'information"><i class="icon-chevron-right"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>25 juillet 2012</td>
+                            <td>20h00</td>
+                            <td>Salle Ste Agnès</td>
+                            <td>{% if is_granted('ROLE_USER') %}
+                               <i class="icon-info-sign info" title="Créé le 23 avril 2012 par F. Monniot
+Édité le 31 juin 2012 par F. Monniot"></i>
+                                {% endif %}
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id faucibus leo. Fusce tempus, sem ut vehicula consectetur, odio est faucibus ipsum, non accumsan elit enim quis turpis. Morbi facilisis felis sed purus semper tincidunt. Sed venenatis dui nibh. Nullam posuere tempor augue, a suscipit sapien condimentum volutpat. Vivamus rutrum velit ac felis consectetur convallis. Aliquam id libero in ante tempus dictum nec adipiscing est. Vestibulum imperdiet orci at turpis tempus rhoncus ut sed. 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+            
+            {% if is_granted('ROLE_USER') %}
+            <div class="row">
+                <div class="page-header span10 offset1">
+                    <h3>Nouveautés <small>Un aperçu des dernières fonctionnalitées</small></h3>
+                </div>
+            </div>
+            
+            <div class="row">
+                <dl class="span8 offset2">
+                    <!--
+                    <dt>-- ---- 2012</dt>
+                    <dd><ul class="unstyled">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul></dd>
+                    -->
+                    <dt>26 juillet 2012</dt>
+                    <dd>Site statique (prévisualisation de l'apparence)</dd>
+                </dl>
+            </div>
+            {% endif %}
+        {% endblock content %}
