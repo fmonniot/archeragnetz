@@ -31,6 +31,24 @@
                         </tr>
                     </thead>
                     <tbody>
+                    {% for event in events %}
+                        <tr>
+                            <td>{{ event.dtstart|date('d/m/Y') }}</td>
+                            <td>{{ event.dtstart|date('H:i') }}</td>
+                            <td>-</td>
+                            <td>{% if is_granted('ROLE_USER') %}
+                                <span class="info">
+                                    <i class="icon-info-sign" title="Créé le 23 avril 2012 par F. Monniot
+Édité le 31 juin 2012 par F. Monniot"></i>
+                                    <a href="?event=1" title="Éditer cet évènement"><i class="icon-edit"></i></a>
+                                </span>
+                                {% endif %}
+                                {{ event.description|raw }}
+                                {% if event.moreInformation %}<a href="{{ event.moreInformation }}" class="pull-right" title="Plus d'information: {{ event.moreInformation }}"><i class="icon-chevron-right"></i></a> {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    {#
                         <tr>
                             <td>25 juillet 2012</td>
                             <td>20h00</td>
@@ -100,6 +118,7 @@
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id faucibus leo. Fusce tempus, sem ut vehicula consectetur, odio est faucibus ipsum, non accumsan elit enim quis turpis. Morbi facilisis felis sed purus semper tincidunt. Sed venenatis dui nibh. Nullam posuere tempor augue, a suscipit sapien condimentum volutpat. Vivamus rutrum velit ac felis consectetur convallis. Aliquam id libero in ante tempus dictum nec adipiscing est. Vestibulum imperdiet orci at turpis tempus rhoncus ut sed. 
                             </td>
                         </tr>
+                        #}
                     </tbody>
                 </table>
 
