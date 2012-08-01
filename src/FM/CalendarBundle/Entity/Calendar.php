@@ -141,7 +141,6 @@ class Calendar
      */
     public function addEvent(\FM\CalendarBundle\Entity\Event $event)
     {
-        $event->addCalendar($this);
         $this->events[] = $event;
         return $this;
     }
