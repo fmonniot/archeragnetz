@@ -37,6 +37,13 @@ class Event
      * @ORM\Column(name="dtend", type="datetime", nullable=true)
      */
     private $dtend;
+    
+    /**
+     *
+     * @var boolean $wholeDay
+     * @ORM\Column(name="whole_day", type="boolean", nullable=true)
+     */
+    private $wholeDay;
 
     /**
      *
@@ -118,6 +125,28 @@ class Event
     public function getDtend()
     {
         return $this->dtend;
+    }
+
+    /**
+     * Set wholeDay
+     *
+     * @param boolean $wholeDay
+     * @return Event
+     */
+    public function setWholeDay($wholeDay)
+    {
+        $this->wholeDay = $wholeDay;
+        return $this;
+    }
+
+    /**
+     * Is wholeDay
+     *
+     * @return boolean 
+     */
+    public function isWholeDay()
+    {
+        return $this->wholeDay;
     }
 
     /**
