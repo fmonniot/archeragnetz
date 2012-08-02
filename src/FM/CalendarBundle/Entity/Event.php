@@ -42,6 +42,7 @@ class Event
      *
      * @var boolean $wholeDay
      * @ORM\Column(name="whole_day", type="boolean", nullable=true)
+     * @Assert\Type(type="bool")
      */
     private $wholeDay;
 
@@ -70,6 +71,7 @@ class Event
      *
      * @var string $url
      * @ORM\Column(name="url", type="string", nullable=true)
+     * @Assert\Url()
      */
     private $url;
 
