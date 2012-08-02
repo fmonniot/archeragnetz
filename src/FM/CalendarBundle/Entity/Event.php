@@ -48,7 +48,7 @@ class Event
     /**
      *
      * @var Address $location
-     * @ORM\ManyToOne(targetEntity="Address")
+     * @ORM\Column(name="location", type="string", nullable=true)
      */
     private $location;
 
@@ -68,10 +68,10 @@ class Event
     
     /**
      *
-     * @var string $moreInformation
-     * @ORM\Column(name="more_information", type="string", nullable=true)
+     * @var string $url
+     * @ORM\Column(name="url", type="string", nullable=true)
      */
-    private $moreInformation;
+    private $url;
 
     /**
      * Get id
@@ -148,28 +148,6 @@ class Event
     {
         return $this->wholeDay;
     }
-
-    /**
-     * Set location
-     *
-     * @param FM\CalendarBundle\Entity\Address $location
-     * @return Event
-     */
-    public function setLocation(\FM\CalendarBundle\Entity\Address $location = null)
-    {
-        $this->location = $location;
-        return $this;
-    }
-
-    /**
-     * Get location
-     *
-     * @return FM\CalendarBundle\Entity\Address 
-     */
-    public function getLocation()
-    {
-        return $this->location;
-    }
     
     /**
      * Set description
@@ -217,24 +195,56 @@ class Event
     }
 
     /**
-     * Set moreInformation
+     * Set Url
      *
-     * @param string $moreInformation
+     * @param string $url
      * @return Event
      */
-    public function setMoreInformation($moreInformation)
+    public function setUrl($url)
     {
-        $this->moreInformation = $moreInformation;
+        $this->url = $url;
         return $this;
     }
 
     /**
-     * Get moreInformation
+     * Get url
      *
      * @return string 
      */
-    public function getMoreInformation()
+    public function getUrl()
     {
-        return $this->moreInformation;
+        return $this->url;
+    }
+
+    /**
+     * Get wholeDay
+     *
+     * @return boolean 
+     */
+    public function getWholeDay()
+    {
+        return $this->wholeDay;
+    }
+
+    /**
+     * Set location
+     *
+     * @param string $location
+     * @return Event
+     */
+    public function setLocation($location)
+    {
+        $this->location = $location;
+        return $this;
+    }
+
+    /**
+     * Get location
+     *
+     * @return string 
+     */
+    public function getLocation()
+    {
+        return $this->location;
     }
 }

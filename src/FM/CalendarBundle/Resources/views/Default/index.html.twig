@@ -35,7 +35,7 @@
                         <tr>
                             <td>{{ event.dtstart|date('d/m/Y') }}</td>
                             <td>{{ event.dtstart|date('H:i') }}</td>
-                            <td>-</td>
+                            <td>{% if event.location %}{{ event.location }}{% else %}<em>Non renseigné</em>{% endif %}</td>
                             <td>{% if is_granted('ROLE_USER') %}
                                 <span class="info">
                                     <i class="icon-info-sign" title="Créé le 23 avril 2012 par F. Monniot
@@ -44,7 +44,7 @@
                                 </span>
                                 {% endif %}
                                 {{ event.description|raw }}
-                                {% if event.moreInformation %}<a href="{{ event.moreInformation }}" class="pull-right" title="Plus d'information: {{ event.moreInformation }}"><i class="icon-chevron-right"></i></a> {% endif %}
+                                {% if event.url %}<a href="{{ event.url }}" class="pull-right" title="Plus d'information: {{ event.url }}"><i class="icon-chevron-right"></i></a> {% endif %}
                             </td>
                         </tr>
                     {% endfor %}
