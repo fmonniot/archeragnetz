@@ -21,6 +21,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
         $event->setWholeDay(false);
         $event->setDescription("<span class=\"label label-info\">Entrainement</span> Adulte (estival)");
         $event->setCalendar($this->getReference('calendar-public'));
+        $event->setCreatedBy($this->getReference('user-asacalendar'));
         $event->setUrl("http://www.archeragnetz.fr/calendrier.html");
         $manager->persist($event);
         
@@ -30,6 +31,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
         $event->setWholeDay(false);
         $event->setDescription("<span class=\"label label-important\">Bureau</span> Inventaire du materiel");
         $event->setCalendar($this->getReference('calendar-public'));
+        $event->setCreatedBy($this->getReference('user-asacalendar'));
         $manager->persist($event);
         
         $event = new Event();
@@ -38,6 +40,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
         $event->setWholeDay(false);
         $event->setDescription("Concours 3D Charger les cibles dans l'utilitaire");
         $event->setCalendar($this->getReference('calendar-office'));
+        $event->setCreatedBy($this->getReference('user-asacalendar'));
         $manager->persist($event);
         
         $event = new Event();
@@ -45,6 +48,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
         $event->setWholeDay(true);
         $event->setDescription("Sans badge");
         $event->setCalendar($this->getReference('calendar-public'));
+        $event->setCreatedBy($this->getReference('user-asacalendar'));
         $event->setUrl("http://www.archeragnetz.fr/calendrier.html");
         $manager->persist($event);
         
@@ -54,6 +58,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
         $event->setWholeDay(false);
         $event->setDescription("Ou avec des liens \"Plus d'information\". Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu mauris non magna ullamcorper faucibus. Duis hendrerit hendrerit odio, vitae pharetra arcu iaculis sed. Suspendisse potenti. Aenean porttitor purus vel nunc varius pharetra. Etiam scelerisque dignissim elit id porta. Sed consectetur venenatis porttitor. Proin pellentesque ante in arcu fermentum a.");
         $event->setCalendar($this->getReference('calendar-public'));
+        $event->setCreatedBy($this->getReference('user-asacalendar'));
         $event->setUrl("http://www.archeragnetz.fr/calendrier.html");
         $manager->persist($event);
         
@@ -63,6 +68,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
         $event->setWholeDay(false);
         $event->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id faucibus leo. Fusce tempus, sem ut vehicula consectetur, odio est faucibus ipsum, non accumsan elit enim quis turpis. Morbi facilisis felis sed purus semper tincidunt. Sed venenatis dui nibh. Nullam posuere tempor augue, a suscipit sapien condimentum volutpat. Vivamus rutrum velit ac felis consectetur convallis. Aliquam id libero in ante tempus dictum nec adipiscing est. Vestibulum imperdiet orci at turpis tempus rhoncus ut sed.");
         $event->setCalendar($this->getReference('calendar-public'));
+        $event->setCreatedBy($this->getReference('user-asacalendar'));
         $event->setUrl("http://www.archeragnetz.fr/calendrier.html");
         $manager->persist($event);
         

@@ -3,6 +3,7 @@
 namespace FM\CalendarBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -56,7 +57,7 @@ class Event
     /**
      *
      * @var text $description
-     * @ORM\Column(name="description", type="text", nullable=true)
+     * @ORM\Column(name="description", type="text")
      */
     private $description;
 
@@ -74,6 +75,36 @@ class Event
      * @Assert\Url()
      */
     private $url;
+    
+    /**
+     *
+     * @var datetime $created_at
+     * @ORM\Column(name="created_at", type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     */
+    private $created_at;
+    
+    /**
+     *
+     * @var User $created_by
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="events")
+     */
+    private $created_by;
+
+    /**
+     *
+     * @var datetime $updated_at
+     * @ORM\Column(name="updated_at", type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     */
+    private $updated_at;
+    
+    /**
+     *
+     * @var User $updated_by
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="events")
+     */
+    private $updated_by;
 
     /**
      * Get id
@@ -248,5 +279,93 @@ class Event
     public function getLocation()
     {
         return $this->location;
+    }
+
+    /**
+     * Set created_at
+     *
+     * @param datetime $createdAt
+     * @return Event
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+        return $this;
+    }
+
+    /**
+     * Get created_at
+     *
+     * @return datetime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updated_at
+     *
+     * @param datetime $updatedAt
+     * @return Event
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+        return $this;
+    }
+
+    /**
+     * Get updated_at
+     *
+     * @return datetime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set created_by
+     *
+     * @param FM\CalendarBundle\Entity\User $createdBy
+     * @return Event
+     */
+    public function setCreatedBy(\FM\CalendarBundle\Entity\User $createdBy = null)
+    {
+        $this->created_by = $createdBy;
+        return $this;
+    }
+
+    /**
+     * Get created_by
+     *
+     * @return FM\CalendarBundle\Entity\User 
+     */
+    public function getCreatedBy()
+    {
+        return $this->created_by;
+    }
+
+    /**
+     * Set updated_by
+     *
+     * @param FM\CalendarBundle\Entity\User $updatedBy
+     * @return Event
+     */
+    public function setUpdatedBy(\FM\CalendarBundle\Entity\User $updatedBy = null)
+    {
+        $this->updated_by = $updatedBy;
+        return $this;
+    }
+
+    /**
+     * Get updated_by
+     *
+     * @return FM\CalendarBundle\Entity\User 
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updated_by;
     }
 }
