@@ -3,6 +3,7 @@
 namespace FM\CalendarBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * EventRepository
@@ -12,4 +13,42 @@ use Doctrine\ORM\EntityRepository;
  */
 class EventRepository extends EntityRepository
 {
+    private function getQueryAllByVisibility($visibility)
+    {
+       return $this->getEntityManager()
+            ->createQuery('
+                SELECT e, c FROM FMCalendarBundle:Event e
+                JOIN e.calendar c
+                WHERE c.visibility = :visibility
+                ORDER BY e.dtstart DESC'
+            )->setParameter('visibility', $visibility);
+    }
+    
+    private function getQueryAllByAuthor(UserInterface $author)
+    {
+       return $this->getEntityManager()
+            ->createQuery('
+                SELECT e FROM FMCalendarBundle:Event e
+                WHERE e.created_by = :author
+                ORDER BY e.dtstart DESC'
+            )->setParameter('author', $author);
+    }
+    
+    public function findAllPublic()
+    {
+        try {
+            return $this->getQueryAllByVisibility('public')->getResult();
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            return null;
+        }
+    }
+    
+    public function findAllByAuthor(UserInterface $author)
+    {
+        try {
+            return $this->getQueryAllByAuthor($author)->getResult();
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            return null;
+        }
+    }
 }
