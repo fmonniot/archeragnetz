@@ -2,13 +2,13 @@
 
 {% block page_header_toolbar %}
                     <div class="btn-group" data-toggle="buttons-radio">
-                        <a href="#{{ path('FMCalendarBundle_homepage', {"display":"thumbnails"}) }}" class="btn disabled" title="Bientot disponible"><i class="icon-th"></i> Vignettes</a>
-                        <a href="{{ path('FMCalendarBundle_homepage', {"display":"list"}) }}" class="btn active"><i class="icon-th-list"></i> Liste</a>
+                        <a href="#{{ path('fm_calendar_homepage', {"display":"calendar"}) }}" class="btn disabled" title="Bientot disponible"><i class="icon-th"></i> Calendrier</a>
+                        <a href="{{ path('fm_calendar_homepage', {"display":"list"}) }}" class="btn active"><i class="icon-th-list"></i> Liste</a>
                     </div>
                     
 	                {% if is_granted('ROLE_USER') %}
 	                <div class="btn-group">
-	                    <a href="new.html" class="btn">Nouveau</a>
+	                    <a href="{{ path('fm_calendar_event_new') }}" class="btn">Nouveau</a>
 	                </div>
 	                {% endif %}
 	                {{ parent() }}
@@ -17,7 +17,7 @@
 {% block content %}
             <div class="row">
                 <div class="page-header span10 offset1">
-                    <h3>Prochains Évènement <small>Que se passe-t-il au club ces prochaines semaines ?</small></h3>
+                    <h3>{% block list_title %}Prochains Évènement <small>Que se passe-t-il au club ces prochaines semaines ?</small>{% endblock list_title %}</h3>
                 </div>
             </div>
             <div class="row">
@@ -45,7 +45,7 @@
                                 <span class="info">{# Information display is currently in progress, coming soon.
                                     <i class="icon-info-sign" title="Créé le 23 avril 2012 par F. Monniot
 Édité le 31 juin 2012 par F. Monniot"></i>#}
-                                    <a href="?event=1" title="Éditer cet évènement"><i class="icon-edit"></i></a>
+                                    <a href="{{ path('fm_calendar_event_edit', {'id':event.id}) }}" title="Éditer cet évènement"><i class="icon-edit"></i></a>
                                 </span>
                                 {% endif %}
                                 {{ event.description|raw }}
@@ -58,8 +58,7 @@
 
 
             </div>
-            
-            {% if is_granted('ROLE_USER') %}
+            {% if is_granted('ROLE_USER') and not noChangelog|default(false) %}
                 {% include 'FMCalendarBundle:Default:changelog.html.twig' %}
             {% endif %}
         {% endblock content %}

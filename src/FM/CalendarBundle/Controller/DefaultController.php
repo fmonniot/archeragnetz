@@ -6,20 +6,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function myEventsAction()
     {
+        
         if( $this->get('security.context')->isGranted('ROLE_USER') )
         {
-            $events = $this->getDoctrine()->getRepository('FMCalendarBundle:Event')->findAll();
+            
+            $events = $this->getDoctrine()->getRepository('FMCalendarBundle:Event')->findAllByAuthor($this->getUser());
+            
+            return $this->render('FMCalendarBundle:Default:list.html.twig', array(
+                'events'=>$events,
+                'user'=>$this->getUser(),
+                'list_title'=>"Mes Évènements"
+            ));
         }
         else 
         {
-            $query = $this->getDoctrine()->getRepository('FMCalendarBundle:Calendar')->createQueryBuilder('c')
-                ->where('c.visibility = :visibility')
-                ->setParameter('visibility','public')
-                ->getQuery();
-            $events = $query->getSingleResult()->getEvents();
+            return $this->redirect($this->generateUrl('fm_calendar_homepage'));
         }
-        return $this->render('FMCalendarBundle:Default:index.html.twig', array('events'=>$events));
+        
     }
 }
