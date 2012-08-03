@@ -1,0 +1,38 @@
+{% extends "FMCalendarBundle:Event:new.html.twig" %}
+
+{% block page_header_title_next %}Éditer Évènement{% endblock page_header_title_next %}
+
+{% block form_actions_submit %}Mettre à jour{% endblock form_actions_submit %}
+
+{% block form_actions %}
+    {{ parent() }}
+    {# Not securised. Abandonned.
+    <div class="pull-right">
+        <a href="{{ path('fm_calendar_event_delete', { 'id': entity.id }) }}" class="btn btn-danger">Supprimer</a>
+    </div>
+    #}
+{% endblock form_actions %}
+
+{#<h1>Event edit</h1>
+
+<form action="{{ path('fm_calendar_event_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    {{ form_widget(edit_form) }}
+    <p>
+        <button type="submit">Edit</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('fm_calendar_event') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('fm_calendar_event_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+#}

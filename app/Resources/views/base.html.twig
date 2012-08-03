@@ -36,7 +36,7 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="{{ path('fos_user_profile_show') }}">Mon compte</a></li>
-                            <li><a href="my/events.html">Mes Évènements</a></li>
+                            <li><a href="{{ path('fm_calendar_my_events') }}">Mes Évènements</a></li>
                             <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
                         </ul>
                         {% endblock page_header_toolbar_account %}

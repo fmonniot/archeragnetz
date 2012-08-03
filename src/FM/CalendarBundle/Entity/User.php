@@ -62,10 +62,9 @@ class User extends BaseUser
       * Address
       *
       * @var ArrayCollection $address
-      * @ORM\ManyToMany(targetEntity="Address", inversedBy="users")
-      * @ORM\JoinTable(name="users_addresses")
+     * @ORM\Column(name="address", type="string", nullable=true)
       */
-     private $addresss;
+     private $address;
      
      
     public function __construct()
@@ -82,38 +81,6 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Add addresss
-     *
-     * @param FM\CalendarBundle\Entity\Address $addresss
-     * @return User
-     */
-    public function addAddress(\FM\CalendarBundle\Entity\Address $addresss)
-    {
-        $this->addresss[] = $addresss;
-        return $this;
-    }
-
-    /**
-     * Remove addresss
-     *
-     * @param <variableType$addresss
-     */
-    public function removeAddress(\FM\CalendarBundle\Entity\Address $addresss)
-    {
-        $this->addresss->removeElement($addresss);
-    }
-
-    /**
-     * Get addresss
-     *
-     * @return Doctrine\Common\Collections\Collection 
-     */
-    public function getAddresss()
-    {
-        return $this->addresss;
     }
 
     /**
@@ -181,5 +148,27 @@ class User extends BaseUser
     public function getMobile()
     {
         return $this->mobile;
+    }
+
+    /**
+     * Set address
+     *
+     * @param string $address
+     * @return User
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string 
+     */
+    public function getAddress()
+    {
+        return $this->address;
     }
 }

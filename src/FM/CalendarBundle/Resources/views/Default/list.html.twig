@@ -1,0 +1,6 @@
+{% extends "FMCalendarBundle:Default:index.html.twig" %}
+
+{% set noChangelog = true %}
+
+{% block list_title %}{% if list_title %}{{ list_title }}{% else %}Les évènements de {{user.firstname}} {{user.surname}} <small>Qu'à prévu de faire {{user.firstname}} {{user.surname}} prochainement ?</small>{% endif %}
+{% endblock list_title %}

@@ -29,7 +29,8 @@
             </div>
             
             {% for key, message in app.session.getFlashes() %}
-                <div class="{{ key }}">
+                <div class="alert {% if key == 'fos_user_success'%}alert-success{% else %}{{ key }}{% endif%}">
+                    <a class="close" data-dismiss="alert" href="#">&times;</a>
                     {{ message|trans({}, 'FOSUserBundle') }}
                 </div>
             {% endfor %}
