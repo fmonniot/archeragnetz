@@ -27,6 +27,7 @@ class Calendar
      *
      * @var string $name
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $name;
 
@@ -57,6 +58,7 @@ class Calendar
      *
      * @var string $description
      * @ORM\Column(name="description", type="string", length=150)
+     * @Assert\NotBlank()
      */
     private $description;
     
