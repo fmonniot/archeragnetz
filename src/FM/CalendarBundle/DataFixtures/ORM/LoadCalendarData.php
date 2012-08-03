@@ -17,10 +17,14 @@ class LoadCalendarData extends AbstractFixture implements OrderedFixtureInterfac
     {
         $officerCalendar = new Calendar();
         $officerCalendar->setName("Bureau");
+        $officerCalendar->setDescription("Seul les membres du bureau pourront voir l'évènement");
+        $officerCalendar->setVisibility('restricted');
         $manager->persist($officerCalendar);
         
         $publicCalendar = new Calendar();
         $publicCalendar->setName("Publique");
+        $publicCalendar->setDescription("Tout visiteur pourra voir l'évènement");
+        $publicCalendar->setVisibility('public');
         $manager->persist($publicCalendar);
         
         $manager->flush();

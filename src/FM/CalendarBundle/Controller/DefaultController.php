@@ -15,8 +15,8 @@ class DefaultController extends Controller
         else 
         {
             $query = $this->getDoctrine()->getRepository('FMCalendarBundle:Calendar')->createQueryBuilder('c')
-                ->where('c.name = :name')
-                ->setParameter('name','Publique')
+                ->where('c.visibility = :visibility')
+                ->setParameter('visibility','public')
                 ->getQuery();
             $events = $query->getSingleResult()->getEvents();
         }

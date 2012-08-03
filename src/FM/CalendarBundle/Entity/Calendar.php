@@ -4,6 +4,7 @@ namespace FM\CalendarBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * FM\CalendarBundle\Entity\Calendar
@@ -51,6 +52,21 @@ class Calendar
      * @Gedmo\Timestampable(on="update")
      */
     private $updated_at;
+    
+    /**
+     *
+     * @var string $description
+     * @ORM\Column(name="description", type="string", length=150)
+     */
+    private $description;
+    
+    /**
+     *
+     * @var string $visibility
+     * @ORM\Column(name="visibility", type="string", length=10)
+     * @Assert\NotBlank()
+     */
+    private $visibility;
 
     public function __construct()
     {
@@ -163,5 +179,59 @@ class Calendar
     public function getEvents()
     {
         return $this->events;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Calendar
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set visibility
+     *
+     * @param string $visibility
+     * @return Calendar
+     */
+    public function setVisibility($visibility)
+    {
+        $this->visibility = $visibility;
+        return $this;
+    }
+
+    /**
+     * Get visibility
+     *
+     * @return string
+     */
+    public function getVisibility()
+    {
+        return $this->visibility;
+    }
+    
+    /**
+     * Return name and description concatenated with —
+     *
+     * @return string
+     */
+    public function getNameDescription()
+    {
+        return $this->getName().' — '.$this->getDescription();
     }
 }
