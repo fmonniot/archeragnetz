@@ -33,7 +33,7 @@ class EventController extends Controller
     }
     
     /**
-     *
+     * List Event entities by author (created_by)
      *
      */
     public function listByUserAction(User $user)
