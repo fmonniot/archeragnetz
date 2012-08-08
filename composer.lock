@@ -92,12 +92,6 @@
         {
             "package": "mopa/bootstrap-bundle",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "mopa/bootstrap-bundle",
-            "version": "dev-master",
             "source-reference": "179ec95121633c00d283aed9ae58fad6e884bcc1",
             "commit-date": "1344024984"
         },
@@ -112,12 +106,6 @@
             "version": "dev-master",
             "source-reference": "26a1165b8cfbde91bf01d809f87bc286f18f0963",
             "commit-date": "1343979103"
-        },
-        {
-            "package": "sensio/framework-extra-bundle",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
         },
         {
             "package": "sensio/framework-extra-bundle",
@@ -164,12 +152,6 @@
         {
             "package": "symfony/swiftmailer-bundle",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/swiftmailer-bundle",
-            "version": "dev-master",
             "source-reference": "v2.1.0-RC1",
             "commit-date": "1342684512"
         },
@@ -182,8 +164,8 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "c99f9d29cd829b0d1614f62d68432367fcb289ac",
-            "commit-date": "1344074900"
+            "source-reference": "20d2e5a1cf244a484a3058b7f2a7a7a67835953c",
+            "commit-date": "1344167098"
         },
         {
             "package": "twig/extensions",
