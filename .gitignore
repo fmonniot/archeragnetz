@@ -8,6 +8,11 @@ build/
 vendor
 composer.phar
 
+web/css/
+web/js/
+web/style*
+web/script*
+
 ## generic files to ignore
 *~
 *.lock
