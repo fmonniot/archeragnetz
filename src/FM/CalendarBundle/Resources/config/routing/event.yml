@@ -1,14 +1,17 @@
 fm_calendar_event:
     pattern:  /
     defaults: { _controller: "FMCalendarBundle:Event:index" }
+    requirements: { _method: get }
     
 fm_calendar_event_list_author:
     pattern:  /par/{username}
     defaults: { _controller: "FMCalendarBundle:Event:listByUser" }
+    requirements: { _method: get }
 
 fm_calendar_event_new:
     pattern:  /nouveau
     defaults: { _controller: "FMCalendarBundle:Event:new" }
+    requirements: { _method: get }
 
 fm_calendar_event_create:
     pattern:  /creer
@@ -18,6 +21,7 @@ fm_calendar_event_create:
 fm_calendar_event_edit:
     pattern:  /{id}/editer
     defaults: { _controller: "FMCalendarBundle:Event:edit" }
+    requirements: { _method: get }
 
 fm_calendar_event_update:
     pattern:  /{id}/mettreajour

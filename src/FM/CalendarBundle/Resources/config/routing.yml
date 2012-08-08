@@ -9,3 +9,4 @@ fm_calendar_event:
 fm_calendar_my_events:
     pattern:  /mes-evenements
     defaults: { _controller: FMCalendarBundle:Default:myEvents }
+    requirements: { _method: get }
