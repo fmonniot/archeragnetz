@@ -35,7 +35,9 @@
             {% endfor %}
     
             <div class="row">
-                <form action="{{ path('fm_calendar_event_create') }}" method="post" class="form-horizontal span10 offset1" {{ form_enctype(form) }}>
+                <form action="{% block form_action_path %}{{ path('fm_calendar_event_create') }}{% endblock form_action_path %}" method="post" class="form-horizontal span10 offset1" {{ 
+form_enctype(form) 
+}}>
                     <fieldset>
                         <legend>Informations obligatoires</legend>
                         
