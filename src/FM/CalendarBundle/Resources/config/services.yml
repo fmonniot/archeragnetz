@@ -1,10 +1,5 @@
 parameters:
 #    fm_calendar.example.class: FM\CalendarBundle\Example
-    fm_calendar.event.form.name: "fm_calendar_event_form"
-    fm_calendar.event.form.type: fm_calendar_event_type
-    
-    fm_calendar.event.class: FM\CalendarBundle\Entity\Event
-    fm_calendar.event.form.type.class: FM\CalendarBundle\Form\Type\EventType
 
 services:
 #    fm_calendar.example:

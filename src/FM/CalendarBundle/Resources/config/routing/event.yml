@@ -11,22 +11,13 @@ fm_calendar_event_list_author:
 fm_calendar_event_new:
     pattern:  /nouveau
     defaults: { _controller: "FMCalendarBundle:Event:new" }
-    requirements: { _method: get }
+    requirements: { _method: get|post }
 
-fm_calendar_event_create:
-    pattern:  /creer
-    defaults: { _controller: "FMCalendarBundle:Event:create" }
-    requirements: { _method: post }
 
 fm_calendar_event_edit:
     pattern:  /{id}/editer
     defaults: { _controller: "FMCalendarBundle:Event:edit" }
-    requirements: { _method: get }
-
-fm_calendar_event_update:
-    pattern:  /{id}/mettreajour
-    defaults: { _controller: "FMCalendarBundle:Event:update" }
-    requirements: { _method: post }
+    requirements: { _method: get|post }
 
 fm_calendar_event_delete:
     pattern:  /{id}/supprimer

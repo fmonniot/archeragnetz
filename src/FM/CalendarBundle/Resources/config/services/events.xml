@@ -7,17 +7,34 @@
     <services>
         
         <service id="fm_calendar.event.form" factory-method="createNamed" factory-service="form.factory" class="Symfony\Component\Form\Form">
-            <argument>%fm_calendar.event.form.name%</argument>
-            <argument>%fm_calendar.event.form.type%</argument>
+            <argument>fm_calendar_event_form</argument>
+            <argument>fm_calendar_event_type</argument>
             <argument>null</argument>
         </service>
         
         <service id="fm_calendar.event.form.type" class="FM\CalendarBundle\Form\Type\EventType">
-            <argument>%fm_calendar.event.class%</argument>
+            <argument>FM\CalendarBundle\Entity\Event</argument>
             <tag name="form.type" alias="fm_calendar_event_type" />
         </service>
         
-	    <service id="fm_calendar.event.form.handler.default" class="FM\CalendarBundle\Form\Handler\EventFormHandler" scope="request" >
+	    <service id="fm_calendar.event.form.handler.persist" class="FM\CalendarBundle\Form\Handler\PersistEventFormHandler" scope="request" >
+	        <argument type="service" id="fm_calendar.event.form" />
+	        <argument type="service" id="request" />
+	        <argument type="service" id="doctrine.orm.entity_manager" />
+	    </service>
+	    
+        <service id="fm_calendar.event.form.delete" factory-method="createNamed" factory-service="form.factory" class="Symfony\Component\Form\Form">
+            <argument>fm_calendar_event_form_delete</argument>
+            <argument>fm_calendar_event_type_delete</argument>
+            <argument>null</argument>
+        </service>
+        
+        <service id="fm_calendar.event.form.type.delete" class="FM\CalendarBundle\Form\Type\EventDeleteType">
+            <argument>FM\CalendarBundle\Entity\Event</argument>
+            <tag name="form.type" alias="fm_calendar_event_type_delete" />
+        </service>
+        
+	    <service id="fm_calendar.event.form.handler.delete" class="FM\CalendarBundle\Form\Handler\DeleteEventFormHandler" scope="request" >
 	        <argument type="service" id="fm_calendar.event.form" />
 	        <argument type="service" id="request" />
 	        <argument type="service" id="doctrine.orm.entity_manager" />

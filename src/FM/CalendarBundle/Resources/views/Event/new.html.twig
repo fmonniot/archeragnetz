@@ -35,7 +35,7 @@
             {% endfor %}
     
             <div class="row">
-                <form action="{% block form_action_path %}{{ path('fm_calendar_event_create') }}{% endblock form_action_path %}" method="post" class="form-horizontal span10 offset1" {{ 
+                <form action="{% block form_action_path %}{{ path('fm_calendar_event_new') }}{% endblock form_action_path %}" method="post" class="form-horizontal span10 offset1" {{ 
 form_enctype(form) 
 }}>
                     <fieldset>

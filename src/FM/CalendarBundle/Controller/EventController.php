@@ -53,76 +53,24 @@ class EventController extends Controller
     }
 
     /**
-     * Displays a form to create a new Event entity.
+     * Create a new Event entity.
      *
      */
     public function newAction()
     {
-        $entity = new Event();
-        $form   = $this->createForm(new EventType(), $entity);
-
-        return $this->render('FMCalendarBundle:Event:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
-    }
-
-    /**
-     * Creates a new Event entity.
-     *
-     */
-    public function createAction()
-    {
         $entity  = new Event();
-        $request = $this->getRequest();
         
         $form = $this->container->get('fm_calendar.event.form');
-        $formHandler = $this->container->get('fm_calendar.event.form.handler.default');
+        $formHandler = $this->container->get('fm_calendar.event.form.handler.persist');
         
         $process = $formHandler->process($entity);
         
         if($process)
-            return $this->redirect($this->generateUrl('fm_calendar_homepage', array('id' => $entity->getId())));
-        /*
-        $form    = $this->createForm(new EventType(), $entity);
-        $form->bindRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('fm_calendar_homepage', array('id' => $entity->getId())));
-        }
-        //*/
-
+            return $this->redirect($this->generateUrl('fm_calendar_homepage'));
+        
         return $this->render('FMCalendarBundle:Event:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        ));
-    }
-
-    /**
-     * Displays a form to edit an existing Event entity.
-     *
-     */
-    public function editAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('FMCalendarBundle:Event')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Event entity.');
-        }
-
-        $editForm = $this->createForm(new EventType(), $entity);
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('FMCalendarBundle:Event:edit.html.twig', array(
-            'entity'      => $entity,
-            'form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -130,33 +78,26 @@ class EventController extends Controller
      * Edits an existing Event entity.
      *
      */
-    public function updateAction($id)
+    public function editAction(Event $event)
     {
-        $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('FMCalendarBundle:Event')->find($id);
-
-        if (!$entity) {
+        if (!$event) {
             throw $this->createNotFoundException('Unable to find Event entity.');
         }
+        
+        $form = $this->container->get('fm_calendar.event.form');
+        $formHandler = $this->container->get('fm_calendar.event.form.handler.persist');
+        $deleteForm = $this->createDeleteForm($event);
 
-        $editForm   = $this->createForm(new EventType(), $entity);
-        $deleteForm = $this->createDeleteForm($id);
+        $process = $formHandler->process($event);
 
-        $request = $this->getRequest();
-
-        $editForm->bindRequest($request);
-
-        if ($editForm->isValid()) {
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('fm_calendar_event_edit', array('id' => $id)));
+        if ($process) {
+            return $this->redirect($this->generateUrl('fm_calendar_homepage'));
         }
-
+       
         return $this->render('FMCalendarBundle:Event:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'form'   => $form->createView(),
+            'entity'      => $event,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -165,33 +106,20 @@ class EventController extends Controller
      * Deletes a Event entity.
      *
      */
-    public function deleteAction($id)
+    public function deleteAction(Event $event)
     {
-        $form = $this->createDeleteForm($id);
-        $request = $this->getRequest();
+        $form = $this->createDeleteForm($event);
+        $formHandler = $this->container->get('fm_calendar.event.form.handler.delete');
 
-        $form->bindRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('FMCalendarBundle:Event')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Event entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
-        }
+        $formHandler->process($event);
 
         return $this->redirect($this->generateUrl('fm_calendar_homepage'));
     }
 
-    private function createDeleteForm($id)
+    private function createDeleteForm(Event $event)
     {
-        return $this->createFormBuilder(array('id' => $id))
-            ->add('id', 'hidden')
-            ->getForm()
-        ;
+        $form = $this->container->get('fm_calendar.event.form.delete');
+        $form->setData($event);
+        return $form;
     }
 }
