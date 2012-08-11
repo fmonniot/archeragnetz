@@ -60,8 +60,8 @@ class EventController extends Controller
     {
         $entity  = new Event();
         
-        $form = $this->container->get('fm_calendar.event.form');
-        $formHandler = $this->container->get('fm_calendar.event.form.handler.persist');
+        $form = $this->container->get('fm_calendar.event.form.persist');
+        $formHandler = $this->container->get('fm_calendar.event.form.persist.handler');
         
         $process = $formHandler->process($entity);
         
@@ -85,8 +85,8 @@ class EventController extends Controller
             throw $this->createNotFoundException('Unable to find Event entity.');
         }
         
-        $form = $this->container->get('fm_calendar.event.form');
-        $formHandler = $this->container->get('fm_calendar.event.form.handler.persist');
+        $form = $this->container->get('fm_calendar.event.form.persist');
+        $formHandler = $this->container->get('fm_calendar.event.form.persist.handler');
         $deleteForm = $this->createDeleteForm($event);
 
         $process = $formHandler->process($event);
@@ -109,7 +109,7 @@ class EventController extends Controller
     public function deleteAction(Event $event)
     {
         $form = $this->createDeleteForm($event);
-        $formHandler = $this->container->get('fm_calendar.event.form.handler.delete');
+        $formHandler = $this->container->get('fm_calendar.event.form.delete.handler');
 
         $formHandler->process($event);
 

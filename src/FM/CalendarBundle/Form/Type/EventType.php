@@ -38,6 +38,6 @@ class EventType extends AbstractType
 
     public function getName()
     {
-        return 'fm_calendar_event_type';
+        return 'fm_calendar_event_form_type';
     }
 }

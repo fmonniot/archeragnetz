@@ -24,6 +24,6 @@ class EventDeleteType extends AbstractType
     
     public function getName()
     {
-        return 'fm_calendar_event_type_delete';
+        return 'fm_calendar_event_form_delete_type';
     }
 }
