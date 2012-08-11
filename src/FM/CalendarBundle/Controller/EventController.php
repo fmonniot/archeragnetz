@@ -2,6 +2,12 @@
 
 namespace FM\CalendarBundle\Controller;
 
+use Symfony\Component\DomCrawler\Form;
+
+use Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher;
+
+use FM\Calendar\Form\Handler\EventFormHandler;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -69,6 +75,15 @@ class EventController extends Controller
     {
         $entity  = new Event();
         $request = $this->getRequest();
+        
+        $form = $this->container->get('fm_calendar.event.form');
+        $formHandler = $this->container->get('fm_calendar.event.form.handler.default');
+        
+        $process = $formHandler->process($entity);
+        
+        if($process)
+            return $this->redirect($this->generateUrl('fm_calendar_homepage', array('id' => $entity->getId())));
+        /*
         $form    = $this->createForm(new EventType(), $entity);
         $form->bindRequest($request);
 
@@ -79,6 +94,7 @@ class EventController extends Controller
 
             return $this->redirect($this->generateUrl('fm_calendar_homepage', array('id' => $entity->getId())));
         }
+        //*/
 
         return $this->render('FMCalendarBundle:Event:new.html.twig', array(
             'entity' => $entity,

@@ -64,7 +64,7 @@ class Event
     /**
      *
      * @var Calendar $calendar
-     * @ORM\ManyToOne(targetEntity="Calendar", inversedBy="events")
+     * @ORM\ManyToOne(targetEntity="Calendar", inversedBy="events", cascade={"persist"})
      */
     private $calendar;
     

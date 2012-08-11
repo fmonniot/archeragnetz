@@ -34,7 +34,7 @@ class Calendar
     /**
      *
      * @var ArrayCollection $events
-     * @ORM\OneToMany(targetEntity="Event", mappedBy="calendar")
+     * @ORM\OneToMany(targetEntity="Event", mappedBy="calendar", cascade={"persist"})
      */
     private $events;
 
