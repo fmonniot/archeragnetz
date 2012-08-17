@@ -1,6 +1,6 @@
 {% extends "::base.html.twig" %}
 
-{% block page_header_toolbar %}                    
+{% block page_header_toolbar %}
 	                {% if is_granted('ROLE_USER') %}
 	                <div class="btn-group">
                         <a href="{{ path('fm_calendar_homepage') }}" class="btn">Retour au Calendrier</a>
@@ -17,7 +17,7 @@
                     {{ message|trans({}, 'FOSUserBundle') }}
                 </div>
             {% endfor %}
-            
+
             <div class="row">
                 <div class="page-header span10 offset1">
                     <h3>Mon profil <small>Que connait-on de moi ?</small></h3>

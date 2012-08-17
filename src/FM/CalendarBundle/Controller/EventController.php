@@ -4,15 +4,9 @@ namespace FM\CalendarBundle\Controller;
 
 use Symfony\Component\DomCrawler\Form;
 
-use Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher;
-
-use FM\Calendar\Form\Handler\EventFormHandler;
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 use FM\CalendarBundle\Entity\Event;
-use FM\CalendarBundle\Form\Type\EventType;
 use FM\CalendarBundle\Entity\User;
 
 /**
@@ -27,17 +21,15 @@ class EventController extends Controller
      */
     public function indexAction()
     {
-        if( $this->get('security.context')->isGranted('ROLE_USER') )
-        {
+        if ( $this->get('security.context')->isGranted('ROLE_USER') ) {
             $events = $this->getDoctrine()->getRepository('FMCalendarBundle:Event')->findAll();
-        }
-        else 
-        {
+        } else {
             $events = $this->getDoctrine()->getRepository('FMCalendarBundle:Event')->findAllPublic();
         }
+
         return $this->render('FMCalendarBundle:Default:index.html.twig', array('events'=>$events));
     }
-    
+
     /**
      * List Event entities by author (created_by)
      *
@@ -45,7 +37,7 @@ class EventController extends Controller
     public function listByUserAction(User $user)
     {
         $events = $this->getDoctrine()->getRepository('FMCalendarBundle:Event')->findAllByAuthor($user);
-        
+
         return $this->render('FMCalendarBundle:Default:list.html.twig', array(
             'events'=>$events,
             'user'=>$user
@@ -59,15 +51,16 @@ class EventController extends Controller
     public function newAction()
     {
         $entity  = new Event();
-        
+
         $form = $this->container->get('fm_calendar.event.form.persist');
         $formHandler = $this->container->get('fm_calendar.event.form.persist.handler');
-        
+
         $process = $formHandler->process($entity);
-        
+
         if($process)
+
             return $this->redirect($this->generateUrl('fm_calendar_homepage'));
-        
+
         return $this->render('FMCalendarBundle:Event:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
@@ -84,7 +77,7 @@ class EventController extends Controller
         if (!$event) {
             throw $this->createNotFoundException('Unable to find Event entity.');
         }
-        
+
         $form = $this->container->get('fm_calendar.event.form.persist');
         $formHandler = $this->container->get('fm_calendar.event.form.persist.handler');
         $deleteForm = $this->createDeleteForm($event);
@@ -94,7 +87,7 @@ class EventController extends Controller
         if ($process) {
             return $this->redirect($this->generateUrl('fm_calendar_homepage'));
         }
-       
+
         return $this->render('FMCalendarBundle:Event:edit.html.twig', array(
             'form'   => $form->createView(),
             'entity'      => $event,
@@ -120,6 +113,7 @@ class EventController extends Controller
     {
         $form = $this->container->get('fm_calendar.event.form.delete');
         $form->setData($event);
+
         return $form;
     }
 }

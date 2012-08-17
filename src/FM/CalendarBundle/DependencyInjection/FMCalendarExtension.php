@@ -24,26 +24,26 @@ class FMCalendarExtension extends Extension
 
         $ymlloader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/services'));
         $xmlloader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/services'));
-        
+
         $this->loadEvent($config['event'], $container, $xmlloader);
         $this->loadGlobal($config, $container, $ymlloader);
     }
-    
+
     private function loadGlobal(array $config, ContainerBuilder $container, Loader\YamlFileLoader $loader)
     {
         $loader->load('global.yml');
     }
-    
+
     private function loadEvent(array $config, ContainerBuilder $container, Loader\XmlFileLoader $loader)
     {
         $loader->load('events.xml');
-        
+
         $container->setAlias('fm_calendar.event.form.persist.handler', $config['form']['persist']['handler']);
         unset($config['form']['persist']['handler']);
-        
+
         $container->setAlias('fm_calendar.event.form.delete.handler', $config['form']['delete']['handler']);
         unset($config['form']['delete']['handler']);
-        
+
         //TODO Create a function to automate the stuff below
         $container->setParameter('fm_calendar.event.form.persist.name', $config['form']['persist']['name']);
         $container->setParameter('fm_calendar.event.form.persist.type', $config['form']['persist']['type']);

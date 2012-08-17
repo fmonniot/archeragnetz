@@ -21,12 +21,12 @@ services:
        class: Twig_Extensions_Extension_Text
        tags:
            - { name: twig.extension }
- 
+
     twig.extension.intl:
        class: Twig_Extensions_Extension_Intl
        tags:
            - { name: twig.extension }
-           
+
 # Twig Configuration
 twig:
     debug:            %kernel.debug%
@@ -101,7 +101,7 @@ doctrine:
 stof_doctrine_extensions:
     default_locale: %locale%
     orm:
-        default: 
+        default:
             tree: false
             timestampable: true
             sluggable: false
@@ -124,8 +124,8 @@ mopa_bootstrap:
         error_type: block
 
 fos_user:
-    db_driver:     orm                        
-    firewall_name: main                       
+    db_driver:     orm
+    firewall_name: main
     user_class:    FM\CalendarBundle\Entity\User
     registration:
         form:

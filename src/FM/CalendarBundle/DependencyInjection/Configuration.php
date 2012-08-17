@@ -23,10 +23,10 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('fm_calendar');
 
         $this->addEventSection($rootNode);
-        
+
         return $treeBuilder;
     }
-    
+
     private function addEventSection(ArrayNodeDefinition $node)
     {
         $node

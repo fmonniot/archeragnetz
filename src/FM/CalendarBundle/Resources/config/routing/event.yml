@@ -2,7 +2,7 @@ fm_calendar_event:
     pattern:  /
     defaults: { _controller: "FMCalendarBundle:Event:index" }
     requirements: { _method: get }
-    
+
 fm_calendar_event_list_author:
     pattern:  /par/{username}
     defaults: { _controller: "FMCalendarBundle:Event:listByUser" }

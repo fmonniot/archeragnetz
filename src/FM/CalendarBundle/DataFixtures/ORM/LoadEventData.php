@@ -9,7 +9,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use FM\CalendarBundle\Entity\Event;
 
 class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
-{    
+{
     /**
      * {@inheritDoc}
      */
@@ -24,7 +24,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
         $event->setCreatedBy($this->getReference('user-asacalendar'));
         $event->setUrl("http://www.archeragnetz.fr/calendrier.html");
         $manager->persist($event);
-        
+
         $event = new Event();
         $event->setDtstart(new \DateTime("2012-07-21 14:00:00"));
         $event->setDtend(new \DateTime("2012-07-21 17:00:00"));
@@ -33,7 +33,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
         $event->setCalendar($this->getReference('calendar-public'));
         $event->setCreatedBy($this->getReference('user-asacalendar'));
         $manager->persist($event);
-        
+
         $event = new Event();
         $event->setDtstart(new \DateTime("2012-05-22 08:00:00"));
         $event->setDtend(new \DateTime("2012-05-22 9:30:00"));
@@ -42,7 +42,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
         $event->setCalendar($this->getReference('calendar-office'));
         $event->setCreatedBy($this->getReference('user-asacalendar'));
         $manager->persist($event);
-        
+
         $event = new Event();
         $event->setDtstart(new \DateTime("2012-07-25 20:00:00"));
         $event->setWholeDay(true);
@@ -51,7 +51,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
         $event->setCreatedBy($this->getReference('user-asacalendar'));
         $event->setUrl("http://www.archeragnetz.fr/calendrier.html");
         $manager->persist($event);
-        
+
         $event = new Event();
         $event->setDtstart(new \DateTime("2012-07-25 20:00:00"));
         $event->setDtend(new \DateTime("2012-07-25 22:00:00"));
@@ -61,7 +61,7 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
         $event->setCreatedBy($this->getReference('user-asacalendar'));
         $event->setUrl("http://www.archeragnetz.fr/calendrier.html");
         $manager->persist($event);
-        
+
         $event = new Event();
         $event->setDtstart(new \DateTime("2012-07-25 20:00:00"));
         $event->setDtend(new \DateTime("2012-07-25 22:00:00"));
@@ -71,10 +71,10 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
         $event->setCreatedBy($this->getReference('user-asacalendar'));
         $event->setUrl("http://www.archeragnetz.fr/calendrier.html");
         $manager->persist($event);
-        
+
         $manager->flush();
     }
-    
+
     /**
      * {@inheritDoc}
      */
@@ -83,4 +83,3 @@ class LoadEventData extends AbstractFixture implements OrderedFixtureInterface
         return 12;
     }
 }
-

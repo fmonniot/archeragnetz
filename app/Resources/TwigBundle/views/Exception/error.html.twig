@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
       {% stylesheets filter="less,cssembed,cssrewrite" output="style.css"
              '@FMCalendarBundle/Resources/public/less/style-custom.less'
       %}
         <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
       {% endstylesheets %}
-  
+
     <link rel="shortcut icon" href="/favicon.ico" />
-    
+
     <title>Connexion - Agnetz Tir à l'arc</title>
 </head>
 
@@ -24,15 +24,15 @@
 	            <h1>Agnetz Tir à l'arc - Calendrier</h1>
                 <h2>Erreur {{ status_code }} {{ status_text }}</h2>
             </div>
-            
-            
+
+
             <div class="row">
-                <p class="span6">    
+                <p class="span6">
                 	Something is broken. Please e-mail us at [email] and let us know what you were doing when this error occured.
                 </p>
             </div>
         </div>
-    
+
         <div class="footer">
             <p>
 	            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">
@@ -44,4 +44,3 @@
     </div> <!-- /container -->
 </body>
 </html>
-    

@@ -23,7 +23,7 @@ class EventRepository extends EntityRepository
                 ORDER BY e.dtstart DESC'
             )->setParameter('visibility', $visibility);
     }
-    
+
     private function getQueryAllByAuthor(UserInterface $author)
     {
        return $this->getEntityManager()
@@ -33,7 +33,7 @@ class EventRepository extends EntityRepository
                 ORDER BY e.dtstart DESC'
             )->setParameter('author', $author);
     }
-    
+
     public function findAllPublic()
     {
         try {
@@ -42,7 +42,7 @@ class EventRepository extends EntityRepository
             return null;
         }
     }
-    
+
     public function findAllByAuthor(UserInterface $author)
     {
         try {
