@@ -5,7 +5,7 @@
                         <a href="#{{ path('fm_calendar_homepage', {"display":"calendar"}) }}" class="btn disabled" title="Bientot disponible"><i class="icon-th"></i> Calendrier</a>
                         <a href="{{ path('fm_calendar_homepage', {"display":"list"}) }}" class="btn active"><i class="icon-th-list"></i> Liste</a>
                     </div>
-                    
+
 	                {% if is_granted('ROLE_USER') %}
 	                <div class="btn-group">
 	                    <a href="{{ path('fm_calendar_event_new') }}" class="btn">Nouveau</a>

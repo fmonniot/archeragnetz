@@ -6,7 +6,7 @@
             {% endif %}
             <form action="{{ path("fos_user_security_check") }}" method="post">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                 
+
                 <div class="input-prepend">
                     <label class="add-on span5" for="username">Identifiant</label>
                     <input class="span7" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Nom d'utilisateur ou email" />
@@ -28,5 +28,5 @@
             <div class="more">
                 <a href="{{ path('fos_user_resetting_request') }}">Oublié votre mot de passe ?</a>
             </div>
-            
+
 {% endblock fos_user_content %}

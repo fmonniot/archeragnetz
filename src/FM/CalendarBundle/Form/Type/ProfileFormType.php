@@ -14,7 +14,7 @@ class ProfileFormType extends BaseType
         $builder->add('surname', null, array('label' => 'Nom :', 'translation_domain' => 'FMCalendarBundle'));
         $builder->add('firstname', null, array('label' => 'Prénom :', 'translation_domain' => 'FMCalendarBundle'));
         $builder->add('mobile', null, array('label' => 'Téléphone :', 'translation_domain' => 'FMCalendarBundle'));
-        
+
         $builder->setAttribute('show_legend', true);
     }
 

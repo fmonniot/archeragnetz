@@ -2,6 +2,8 @@
 
 namespace FM\CalendarBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
+
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -20,10 +22,42 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('fm_calendar');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $this->addEventSection($rootNode);
 
         return $treeBuilder;
+    }
+
+    private function addEventSection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->children()
+                ->arrayNode('event')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+                    ->children()
+                        ->arrayNode('form')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->arrayNode('persist')
+                                    ->addDefaultsIfNotSet()
+                                    ->children()
+                                        ->scalarNode('type')->defaultValue('fm_calendar_event_form_type')->end()
+                                        ->scalarNode('handler')->defaultValue('fm_calendar.event.form.persist.handler.default')->end()
+                                        ->scalarNode('name')->defaultValue('fm_calendar_event_form_persist')->end()
+                                    ->end()
+                                ->end()
+                                ->arrayNode('delete')
+                                    ->addDefaultsIfNotSet()
+                                    ->children()
+                                        ->scalarNode('type')->defaultValue('fm_calendar_event_form_delete_type')->end()
+                                        ->scalarNode('handler')->defaultValue('fm_calendar.event.form.delete.handler.default')->end()
+                                        ->scalarNode('name')->defaultValue('fm_calendar_event_form_delete')->end()
+                                    ->end()
+                                ->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end();
     }
 }

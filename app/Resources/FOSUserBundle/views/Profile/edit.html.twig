@@ -1,9 +1,9 @@
 {% extends "::base.html.twig" %}
 
-{% block page_header_toolbar %}                    
+{% block page_header_toolbar %}
 	                {% if is_granted('ROLE_USER') %}
 	                <div class="btn-group">
-                        <a href="{{ path('FMCalendarBundle_homepage') }}" class="btn">Retour au Calendrier</a>
+                        <a href="{{ path('fm_calendar_homepage') }}" class="btn">Retour au Calendrier</a>
 	                </div>
 	                {% endif %}
 	                {{ parent() }}
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
-                
+
                 <div class="row">
                     <fieldset class="span4 offset2">
                         <legend>Informations de connexion</legend>
@@ -42,7 +42,7 @@
                     <div class="form-actions span8 offset2">
                         <button type="submit" class="btn btn-primary" id="_submit" name="_submit">{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}</button>
                         <a href="{{ path('fos_user_profile_show') }}" class="btn">Annuler</a>
-                        
+
                         <div class="pull-right">
                             <a href="{{ path('fos_user_change_password') }}" class="btn btn-warning">Changer de mot de passe</a>{#
                             <a href="" class="btn btn-danger">Supprimer le compte</a> #}

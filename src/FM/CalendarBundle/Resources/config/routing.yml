@@ -1,7 +1,7 @@
 fm_calendar_homepage:
     pattern:  /
     defaults: { _controller: "FMCalendarBundle:Event:index" }
-    
+
 fm_calendar_event:
     resource: "@FMCalendarBundle/Resources/config/routing/event.yml"
     prefix:   /evenement

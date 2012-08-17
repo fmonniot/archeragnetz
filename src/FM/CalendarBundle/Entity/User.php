@@ -20,7 +20,7 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-     
+
      /**
       * Surname
       *
@@ -32,7 +32,7 @@ class User extends BaseUser
       * @Assert\MaxLength(limit="50", message="Votre nom ne peut faire plus de 50 caractères de long.", groups={"Registration", "Profile"})
       **/
      private $surname;
-     
+
      /**
       * First name
       *
@@ -44,11 +44,11 @@ class User extends BaseUser
       * @Assert\MaxLength(limit="50", message="Votre prénom ne peut faire plus de 50 caractères de long", groups={"Registration", "Profile"})
       **/
      private $firstname;
-    
+
     /**
      * Mobile Number (format +xxxxxxxxxxx)
      *
-     * @var string $mobile     
+     * @var string $mobile
      * @ORM\Column(name="mobile_number", type="string", length=12, nullable=true)
      * @Assert\Regex(
      *     pattern="/^(\+[0-9]{2}|0)[1-7]{1}(([0-9]{2}){4})|((\s[0-9]{2}){4})|((-[0-9]{2}){4})$/",
@@ -57,7 +57,7 @@ class User extends BaseUser
      *     )
      */
      private $mobile;
-     
+
      /**
       * Address
       *
@@ -65,18 +65,17 @@ class User extends BaseUser
      * @ORM\Column(name="address", type="string", nullable=true)
       */
      private $address;
-     
-     
+
     public function __construct()
     {
         parent::__construct();
         $this->address = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -86,19 +85,20 @@ class User extends BaseUser
     /**
      * Set surname
      *
-     * @param string $surname
+     * @param  string $surname
      * @return User
      */
     public function setSurname($surname)
     {
         $this->surname = $surname;
+
         return $this;
     }
 
     /**
      * Get surname
      *
-     * @return string 
+     * @return string
      */
     public function getSurname()
     {
@@ -108,19 +108,20 @@ class User extends BaseUser
     /**
      * Set firstname
      *
-     * @param string $firstname
+     * @param  string $firstname
      * @return User
      */
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
+
         return $this;
     }
 
     /**
      * Get firstname
      *
-     * @return string 
+     * @return string
      */
     public function getFirstname()
     {
@@ -130,20 +131,21 @@ class User extends BaseUser
     /**
      * Set mobile (storage in international version)
      *
-     * @param integer $mobile
+     * @param  integer $mobile
      * @return User
      */
     public function setMobile($mobile)
     {
-        
+
         $this->mobile = preg_replace('/^(\+[0-9]{2}|0)([1-7]{1}(([0-9]{2}){4})|((\s[0-9]{2}){4})|((-[0-9]{2}){4}))$/','+33$2', $mobile);
+
         return $this;
     }
 
     /**
      * Get mobile
      *
-     * @return integer 
+     * @return integer
      */
     public function getMobile()
     {
@@ -153,19 +155,20 @@ class User extends BaseUser
     /**
      * Set address
      *
-     * @param string $address
+     * @param  string $address
      * @return User
      */
     public function setAddress($address)
     {
         $this->address = $address;
+
         return $this;
     }
 
     /**
      * Get address
      *
-     * @return string 
+     * @return string
      */
     public function getAddress()
     {

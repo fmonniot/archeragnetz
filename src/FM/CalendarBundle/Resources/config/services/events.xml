@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="fm_calendar.event.form.persist" factory-method="createNamed" factory-service="form.factory" class="Symfony\Component\Form\Form">
+            <argument>%fm_calendar.event.form.persist.name%</argument>
+            <argument>%fm_calendar.event.form.persist.type%</argument>
+            <argument>null</argument>
+        </service>
+
+        <service id="fm_calendar.event.form.persist.type" class="FM\CalendarBundle\Form\Type\EventType">
+            <argument>FM\CalendarBundle\Entity\Event</argument>
+            <tag name="form.type" alias="fm_calendar_event_form_type" />
+        </service>
+
+	    <service id="fm_calendar.event.form.persist.handler.default" class="FM\CalendarBundle\Form\Handler\PersistEventFormHandler" scope="request" >
+	        <argument type="service" id="fm_calendar.event.form.persist" />
+	        <argument type="service" id="request" />
+	        <argument type="service" id="doctrine.orm.entity_manager" />
+	    </service>
+
+        <service id="fm_calendar.event.form.delete" factory-method="createNamed" factory-service="form.factory" class="Symfony\Component\Form\Form">
+            <argument>%fm_calendar.event.form.delete.name%</argument>
+            <argument>%fm_calendar.event.form.delete.type%</argument>
+            <argument>null</argument>
+        </service>
+
+        <service id="fm_calendar.event.form.delete.type" class="FM\CalendarBundle\Form\Type\EventDeleteType">
+            <argument>FM\CalendarBundle\Entity\Event</argument>
+            <tag name="form.type" alias="fm_calendar_event_form_delete_type" />
+        </service>
+
+	    <service id="fm_calendar.event.form.delete.handler.default" class="FM\CalendarBundle\Form\Handler\DeleteEventFormHandler" scope="request" >
+	        <argument type="service" id="fm_calendar.event.form.delete" />
+	        <argument type="service" id="request" />
+	        <argument type="service" id="doctrine.orm.entity_manager" />
+	    </service>
+
+    </services>
+
+</container>

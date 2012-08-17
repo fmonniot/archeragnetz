@@ -38,7 +38,7 @@ class Event
      * @ORM\Column(name="dtend", type="datetime", nullable=true)
      */
     private $dtend;
-    
+
     /**
      *
      * @var boolean $wholeDay
@@ -64,10 +64,10 @@ class Event
     /**
      *
      * @var Calendar $calendar
-     * @ORM\ManyToOne(targetEntity="Calendar", inversedBy="events")
+     * @ORM\ManyToOne(targetEntity="Calendar", inversedBy="events", cascade={"persist"})
      */
     private $calendar;
-    
+
     /**
      *
      * @var string $url
@@ -75,7 +75,7 @@ class Event
      * @Assert\Url()
      */
     private $url;
-    
+
     /**
      *
      * @var datetime $created_at
@@ -83,7 +83,7 @@ class Event
      * @Gedmo\Timestampable(on="create")
      */
     private $created_at;
-    
+
     /**
      *
      * @var User $created_by
@@ -98,7 +98,7 @@ class Event
      * @Gedmo\Timestampable(on="update")
      */
     private $updated_at;
-    
+
     /**
      *
      * @var User $updated_by
@@ -109,7 +109,7 @@ class Event
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -119,19 +119,20 @@ class Event
     /**
      * Set dtstart
      *
-     * @param datetime $dtstart
+     * @param  datetime $dtstart
      * @return Event
      */
     public function setDtstart($dtstart)
     {
         $this->dtstart = $dtstart;
+
         return $this;
     }
 
     /**
      * Get dtstart
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getDtstart()
     {
@@ -141,19 +142,20 @@ class Event
     /**
      * Set dtend
      *
-     * @param datetime $dtend
+     * @param  datetime $dtend
      * @return Event
      */
     public function setDtend($dtend)
     {
         $this->dtend = $dtend;
+
         return $this;
     }
 
     /**
      * Get dtend
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getDtend()
     {
@@ -163,41 +165,43 @@ class Event
     /**
      * Set wholeDay
      *
-     * @param boolean $wholeDay
+     * @param  boolean $wholeDay
      * @return Event
      */
     public function setWholeDay($wholeDay)
     {
         $this->wholeDay = $wholeDay;
+
         return $this;
     }
 
     /**
      * Is wholeDay
      *
-     * @return boolean 
+     * @return boolean
      */
     public function isWholeDay()
     {
         return $this->wholeDay;
     }
-    
+
     /**
      * Set description
      *
-     * @param text $description
+     * @param  text  $description
      * @return Event
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
     /**
      * Get description
      *
-     * @return text 
+     * @return text
      */
     public function getDescription()
     {
@@ -207,20 +211,21 @@ class Event
     /**
      * Set calendar
      *
-     * @param FM\CalendarBundle\Entity\Calendar $calendar
+     * @param  FM\CalendarBundle\Entity\Calendar $calendar
      * @return Event
      */
     public function setCalendar(\FM\CalendarBundle\Entity\Calendar $calendar = null)
     {
         $calendar->addEvent($this);
         $this->calendar = $calendar;
+
         return $this;
     }
 
     /**
      * Get calendar
      *
-     * @return FM\CalendarBundle\Entity\Calendar 
+     * @return FM\CalendarBundle\Entity\Calendar
      */
     public function getCalendar()
     {
@@ -230,19 +235,20 @@ class Event
     /**
      * Set Url
      *
-     * @param string $url
+     * @param  string $url
      * @return Event
      */
     public function setUrl($url)
     {
         $this->url = $url;
+
         return $this;
     }
 
     /**
      * Get url
      *
-     * @return string 
+     * @return string
      */
     public function getUrl()
     {
@@ -252,7 +258,7 @@ class Event
     /**
      * Get wholeDay
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getWholeDay()
     {
@@ -262,19 +268,20 @@ class Event
     /**
      * Set location
      *
-     * @param string $location
+     * @param  string $location
      * @return Event
      */
     public function setLocation($location)
     {
         $this->location = $location;
+
         return $this;
     }
 
     /**
      * Get location
      *
-     * @return string 
+     * @return string
      */
     public function getLocation()
     {
@@ -284,19 +291,20 @@ class Event
     /**
      * Set created_at
      *
-     * @param datetime $createdAt
+     * @param  datetime $createdAt
      * @return Event
      */
     public function setCreatedAt($createdAt)
     {
         $this->created_at = $createdAt;
+
         return $this;
     }
 
     /**
      * Get created_at
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getCreatedAt()
     {
@@ -306,19 +314,20 @@ class Event
     /**
      * Set updated_at
      *
-     * @param datetime $updatedAt
+     * @param  datetime $updatedAt
      * @return Event
      */
     public function setUpdatedAt($updatedAt)
     {
         $this->updated_at = $updatedAt;
+
         return $this;
     }
 
     /**
      * Get updated_at
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getUpdatedAt()
     {
@@ -328,19 +337,20 @@ class Event
     /**
      * Set created_by
      *
-     * @param FM\CalendarBundle\Entity\User $createdBy
+     * @param  FM\CalendarBundle\Entity\User $createdBy
      * @return Event
      */
     public function setCreatedBy(\FM\CalendarBundle\Entity\User $createdBy = null)
     {
         $this->created_by = $createdBy;
+
         return $this;
     }
 
     /**
      * Get created_by
      *
-     * @return FM\CalendarBundle\Entity\User 
+     * @return FM\CalendarBundle\Entity\User
      */
     public function getCreatedBy()
     {
@@ -350,19 +360,20 @@ class Event
     /**
      * Set updated_by
      *
-     * @param FM\CalendarBundle\Entity\User $updatedBy
+     * @param  FM\CalendarBundle\Entity\User $updatedBy
      * @return Event
      */
     public function setUpdatedBy(\FM\CalendarBundle\Entity\User $updatedBy = null)
     {
         $this->updated_by = $updatedBy;
+
         return $this;
     }
 
     /**
      * Get updated_by
      *
-     * @return FM\CalendarBundle\Entity\User 
+     * @return FM\CalendarBundle\Entity\User
      */
     public function getUpdatedBy()
     {

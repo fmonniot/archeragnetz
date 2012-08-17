@@ -34,7 +34,7 @@ class Calendar
     /**
      *
      * @var ArrayCollection $events
-     * @ORM\OneToMany(targetEntity="Event", mappedBy="calendar")
+     * @ORM\OneToMany(targetEntity="Event", mappedBy="calendar", cascade={"persist"})
      */
     private $events;
 
@@ -53,7 +53,7 @@ class Calendar
      * @Gedmo\Timestampable(on="update")
      */
     private $updated_at;
-    
+
     /**
      *
      * @var string $description
@@ -61,7 +61,7 @@ class Calendar
      * @Assert\NotBlank()
      */
     private $description;
-    
+
     /**
      *
      * @var string $visibility
@@ -78,7 +78,7 @@ class Calendar
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -88,19 +88,20 @@ class Calendar
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string   $name
      * @return Calendar
      */
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -110,19 +111,20 @@ class Calendar
     /**
      * Set created_at
      *
-     * @param datetime $createdAt
+     * @param  datetime $createdAt
      * @return Calendar
      */
     public function setCreatedAt($createdAt)
     {
         $this->created_at = $createdAt;
+
         return $this;
     }
 
     /**
      * Get created_at
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getCreatedAt()
     {
@@ -132,34 +134,36 @@ class Calendar
     /**
      * Set updated_at
      *
-     * @param datetime $updatedAt
+     * @param  datetime $updatedAt
      * @return Calendar
      */
     public function setUpdatedAt($updatedAt)
     {
         $this->updated_at = $updatedAt;
+
         return $this;
     }
 
     /**
      * Get updated_at
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getUpdatedAt()
     {
         return $this->updated_at;
     }
-    
+
     /**
      * Add event
      *
-     * @param FM\CalendarBundle\Entity\Event $event
+     * @param  FM\CalendarBundle\Entity\Event $event
      * @return Calendar
      */
     public function addEvent(\FM\CalendarBundle\Entity\Event $event)
     {
         $this->events[] = $event;
+
         return $this;
     }
 
@@ -176,7 +180,7 @@ class Calendar
     /**
      * Get events
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getEvents()
     {
@@ -186,19 +190,20 @@ class Calendar
     /**
      * Set description
      *
-     * @param string $description
+     * @param  string   $description
      * @return Calendar
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -208,12 +213,13 @@ class Calendar
     /**
      * Set visibility
      *
-     * @param string $visibility
+     * @param  string   $visibility
      * @return Calendar
      */
     public function setVisibility($visibility)
     {
         $this->visibility = $visibility;
+
         return $this;
     }
 
@@ -226,7 +232,7 @@ class Calendar
     {
         return $this->visibility;
     }
-    
+
     /**
      * Return name and description concatenated with —
      *

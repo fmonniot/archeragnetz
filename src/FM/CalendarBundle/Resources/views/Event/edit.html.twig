@@ -4,7 +4,7 @@
 
 {% block form_actions_submit %}Mettre à jour{% endblock form_actions_submit %}
 
-{% block form_action_path %}{{ path('fm_calendar_event_update') }}{% endblock form_action_path %}
+{% block form_action_path %}{{ path('fm_calendar_event_edit', {'id':entity.id}) }}{% endblock form_action_path %}
 
 {% block form_actions %}
     {{ parent() }}
