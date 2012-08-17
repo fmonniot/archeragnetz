@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
+
+
 {% block head_style %}
   {% stylesheets filter="less,cssembed,cssrewrite,yui_css" output="style.css"
          '@FMCalendarBundle/Resources/public/less/style-custom.less'
@@ -13,9 +13,9 @@
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
   {% endstylesheets %}
 {% endblock head_style %}
-  
+
     <link rel="shortcut icon" href="/favicon.ico" />
-    
+
     <title>{% block title %} Calendrier ASA Tir à l'arc {% endblock title %}</title>
 </head>
 
@@ -24,17 +24,19 @@
         <div class="content">
             <div class="page-header main-header">
 	            <div class="btn-toolbar">
-	            {% block page_header_toolbar %}	                
+	            {% block page_header_toolbar %}
 	                <div class="btn-group">
 	                {% if is_granted('ROLE_USER') %}
 	                    {% block page_header_toolbar_account %}
                         <button class="btn dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-user"></i>
                             {% if app.user.surname %}{{ app.user.firstname }} {{ app.user.surname }}{% else %}{{ app.user }}{% endif %}
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="{{ path('fos_user_profile_show') }}">Mon compte</a></li>
                             <li><a href="{{ path('fm_calendar_my_events') }}">Mes Évènements</a></li>
+                            <li class="divider"></li>
                             <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
                         </ul>
                         {% endblock page_header_toolbar_account %}
@@ -47,7 +49,7 @@
 	            <h1>{% block page_header_title %}Calendrier Agnetz Tir à l'arc{% endblock page_header_title %}</h1>
             </div>
             {% block content %}
-           
+
             {% endblock content %}
         </div>
         <div class="footer">
@@ -59,8 +61,8 @@
             </p>
         </div>
     </div> <!-- /container -->
-    
-    
+
+
 
     <!-- Le javascript
     ================================================== -->
