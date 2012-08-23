@@ -1,14 +1,14 @@
 <?php
 namespace FM\NotificationBundle\Model;
-use Symfony\Component\EventDispatcher\Event;
-use Symfony\Component\Security\Core\User\UserInterface;
+use FOS\UserBundle\Model\UserInterface;
 use FM\NotificationBundle\Model\NotificationInterface;
+use \DateTime;
 
 /**
  * @author francois
  *
  */
-abstract class Notification extends Event implements NotificationInterface
+abstract class Notification implements NotificationInterface
 {
     /**
      * @var string
@@ -49,6 +49,11 @@ abstract class Notification extends Event implements NotificationInterface
      * @return boolean
      */
 
+    public function __construct()
+    {
+        $this->createdAt = new DateTime();
+    }
+    
     /**
      * (non-PHPdoc)
      * @see FM\NotificationBundle\Model.NotificationInterface::getActor()
@@ -61,7 +66,7 @@ abstract class Notification extends Event implements NotificationInterface
     /**
      * @param string $actor
      */
-    public function setActor(string $actor)
+    public function setActor($actor)
     {
         $this->actor = $actor;
     }
@@ -108,8 +113,7 @@ abstract class Notification extends Event implements NotificationInterface
      */
     public function isRead()
     {
-        // TODO: Auto-generated method stub
-
+        return $this->getReadAt() !== NULL;
     }
 
     /**
@@ -118,17 +122,16 @@ abstract class Notification extends Event implements NotificationInterface
      */
     public function markRead()
     {
-        // TODO: Auto-generated method stub
-
+        $this->readAt = new DateTime();
     }
 
     /**
      * (non-PHPdoc)
      * @see FM\NotificationBundle\Model.NotificationInterface::markUnred()
      */
-    public function markUnred()
+    public function markUnread()
     {
-        // TODO: Auto-generated method stub
+        $this->readAt = null;
 
     }
 
@@ -154,7 +157,7 @@ abstract class Notification extends Event implements NotificationInterface
      * (non-PHPdoc)
      * @see FM\NotificationBundle\Model.NotificationInterface::setSubject()
      */
-    public function setSubject(string $subject)
+    public function setSubject($subject)
     {
         $this->subject = $subject;
     }
@@ -172,7 +175,7 @@ abstract class Notification extends Event implements NotificationInterface
      * (non-PHPdoc)
      * @see FM\NotificationBundle\Model.NotificationInterface::setMessage()
      */
-    public function setMessage(string $message)
+    public function setMessage($message)
     {
         $this->message = $message;
     }

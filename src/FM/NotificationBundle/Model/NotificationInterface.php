@@ -2,7 +2,7 @@
 
 namespace FM\NotificationBundle\Model;
 
-use Symfony\Component\Security\Core\User\UserInterface;
+use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\EventDispatcher\Event;
 
 interface NotificationInterface
@@ -61,7 +61,7 @@ interface NotificationInterface
      * 
      * @return void
      */
-    function markUnred();
+    function markUnread();
     
     /**
      * Return the subject of the notification
