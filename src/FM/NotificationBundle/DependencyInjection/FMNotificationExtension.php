@@ -22,7 +22,31 @@ class FMNotificationExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.xml');
+        $xmlloader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+
+        $this->loadSender($config['sender'], $container, $xmlloader);
+        $this->loadNotifications($config, $container, $xmlloader);
+    }
+    
+    
+    private function loadSender(array $config, ContainerBuilder $container, Loader\XmlFileLoader $loader)
+    {
+        $loader->load('sender.xml');
+        
+        $container->setAlias('fm_notification.sender.default', $config['default']);
+        
+        //TODO Create a function to automate the stuff below
+        $container->setParameter('fm_notification.sender.email.class', $config['email']['class']);
+        $container->setParameter('fm_notification.sender.email.template', $config['email']['template']);
+        unset($config['default'],$config['email']['class'],$config['email']['template']);
+    }
+    
+    private function loadNotifications(array $config, ContainerBuilder $container, Loader\XmlFileLoader $loader)
+    {
+        $loader->load('notifications.xml');
+        
+        //TODO Create a function to automate the stuff below
+        $container->setParameter('fm_notification.manager.class', $config['manager']['class']);
+        unset($config['manager']['class']);
     }
 }
