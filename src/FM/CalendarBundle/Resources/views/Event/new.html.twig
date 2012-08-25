@@ -45,7 +45,7 @@ form_enctype(form)
 
                         {{ form_row(form.calendar, {'label':'Calendrier'}) }}
 
-                        {{ form_row(form.description, { 'attr': {'class': 'span8'}, 'help_block':'Il est conseillé de limiter la taille de la description afin de garantir une meilleure visibilité.<br/>En bas de page se trouve des codes qui vous permettront d\'améliorer le rendu de vos descriptions, libre à vous de les utiliser.', 'label':'Description' }) }}
+                        {{ form_row(form.description, { 'attr': {'class': 'span8 basic-editor'}, 'help_block':'Il est conseillé de limiter la taille de la description afin de garantir une meilleure lisibilité.', 'label':'Description' }) }}
 
                     </fieldset>
                     <fieldset>
@@ -77,50 +77,7 @@ form_enctype(form)
                         <button type="reset" class="btn">Recommencer</button>
                         {% endblock form_actions %}
                     </div>
-                    <hr/>
-                    <fieldset>
-                        <legend>Aide</legend>
-                        <p>Vous pouvez utiliser les codes ci-dessous afin d'ajouter des couleurs à vos descriptions (<span class="label label-warning">Concours 3D</span> par exemple)</p>
-                        <table class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Résultat</th>
-                                    <th>Code</th>
-                                </tr>
-                                </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Texte important</strong></td>
-                                    <td><code>&lt;strong&gt;Texte important&lt;/strong&gt;</code></td>
-                                </tr>
-                                <tr>
-                                    <td><em>Texte accentué</em></td>
-                                    <td><code>&lt;em&gt;Texte accentué&lt;/em&gt;</code></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="label">Défaut</span></td>
-                                    <td><code>&lt;span class="label"&gt;Défaut&lt;/span&gt;</code></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="label label-warning">Warning</span></td>
-                                <td><code>&lt;span class="label label-warning"&gt;Warning&lt;/span&gt;</code></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="label label-important">Important</span></td>
-                                    <td><code>&lt;span class="label label-important"&gt;Important&lt;/span&gt;</code></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="label label-info">Info</span></td>
-                                    <td><code>&lt;span class="label label-info"&gt;Info&lt;/span&gt;</code></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="label label-inverse">Inverse</span></td>
-                                    <td><code>&lt;span class="label label-inverse"&gt;Inverse&lt;/span&gt;</code></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </fieldset>
                 </form>
             </div>
-
+<script type="text/javascript"></script>
 {% endblock content %}

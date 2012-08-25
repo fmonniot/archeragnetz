@@ -13,7 +13,7 @@
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
   {% endstylesheets %}
 {% endblock head_style %}
-    <meta />
+
     <link rel="shortcut icon" href="/favicon.ico" />
 
     <title>{% block title %} Calendrier ASA Tir à l'arc {% endblock title %}</title>
@@ -68,8 +68,12 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 		{% javascripts
-		    '../app/Resources/public/js/libs/jquery/1.7.1/jquery.min.js'
+		    '../app/Resources/public/js/libs/jquery/1.7.2/jquery.min.js'
 		    '../vendor/twitter/bootstrap/js/*.js'
+		    '../app/Resources/public/js/libs/wysihtml5/0.3.0/wysihtml5.js'
+		    '../app/Resources/public/js/bootstrap-wysihtml5/core.js'
+		    '../app/Resources/public/js/bootstrap-wysihtml5/locales.js'
+		    '../app/Resources/public/js/bootstrap-wysihtml5/editor.js'
 		    output="script.js" filter=""
 		%}
 			<script type="text/javascript" src="{{ asset_url }}"></script>
