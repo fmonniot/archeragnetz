@@ -8,12 +8,12 @@
 
 {% block head_style %}
   {% stylesheets filter="less,cssembed,cssrewrite,yui_css" output="style.css"
-         '@FMCalendarBundle/Resources/public/less/style-custom.less'
+         '../app/Resources/public/less/base.less'
   %}
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
   {% endstylesheets %}
 {% endblock head_style %}
-
+    <meta />
     <link rel="shortcut icon" href="/favicon.ico" />
 
     <title>{% block title %} Calendrier ASA Tir à l'arc {% endblock title %}</title>
