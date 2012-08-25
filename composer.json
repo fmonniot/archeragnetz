@@ -24,7 +24,8 @@
 
         "friendsofsymfony/user-bundle": "*",
         "mopa/bootstrap-bundle": "dev-master",
-        "twitter/bootstrap": "master"
+        "twitter/bootstrap": "master",
+        "FortAwesome/Font-Awesome":"master"
     },
     "repositories": [
         {
@@ -39,6 +40,22 @@
                  },
                  "dist": {
                      "url": "https://github.com/twitter/bootstrap/zipball/master",
+                     "type": "zip"
+                 }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "version": "master",
+                "name": "FortAwesome/Font-Awesome",
+                "source": {
+                    "url": "https://github.com/FortAwesome/Font-Awesome.git",
+                    "type": "git",
+                    "reference": "master"
+                 },
+                 "dist": {
+                     "url": "https://github.com/FortAwesome/Font-Awesome/zipball/master",
                      "type": "zip"
                  }
             }

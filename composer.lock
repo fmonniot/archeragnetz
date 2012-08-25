@@ -1,6 +1,12 @@
 {
-    "hash": "1cd72d29bf1ae6d95cc36195160ce59d",
+    "hash": "c666961a5f53a109c3a6c109a7ba8b6d",
     "packages": [
+        {
+            "package": "FortAwesome/Font-Awesome",
+            "version": "master",
+            "source-reference": "master",
+            "commit-date": "1339864622"
+        },
         {
             "package": "doctrine/common",
             "version": "2.2.2"
@@ -44,20 +50,14 @@
         {
             "package": "friendsofsymfony/user-bundle",
             "version": "dev-master",
-            "source-reference": "5aa50962a4b67e380fe7912cb06defdf448c3f26",
-            "commit-date": "1345421669"
+            "source-reference": "8b2c9ae5e4c5ca11f11fa543d271fccf92f29331",
+            "commit-date": "1345849777"
         },
         {
             "package": "gedmo/doctrine-extensions",
             "version": "dev-master",
-            "alias-pretty-version": "2.3.x-dev",
-            "alias-version": "2.3.9999999.9999999-dev"
-        },
-        {
-            "package": "gedmo/doctrine-extensions",
-            "version": "dev-master",
-            "source-reference": "531e2b84737223bc5aa09bc078a6f5beb74f69f9",
-            "commit-date": "1345461376"
+            "source-reference": "ceb6e562931ac4a86ec103773ecc0919acd74678",
+            "commit-date": "1345826395"
         },
         {
             "package": "jms/aop-bundle",
@@ -98,14 +98,8 @@
         {
             "package": "mopa/bootstrap-bundle",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "mopa/bootstrap-bundle",
-            "version": "dev-master",
-            "source-reference": "2647095a90af1cdfa7e29e29c8d26c555ef147d4",
-            "commit-date": "1345552285"
+            "source-reference": "b1ec82811487d6e4856a218af2a3a0d41d6e4e09",
+            "commit-date": "1345625059"
         },
         {
             "package": "mopa/composer-bridge",
@@ -116,14 +110,8 @@
         {
             "package": "sensio/distribution-bundle",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "sensio/distribution-bundle",
-            "version": "dev-master",
-            "source-reference": "bd98b5fb0e4a5dddb4f7acd2e11f28c4cd7eacee",
-            "commit-date": "1345139690"
+            "source-reference": "7fb1ce437667560608c9592ee7cf6d45b78eee81",
+            "commit-date": "1345816476"
         },
         {
             "package": "sensio/framework-extra-bundle",
@@ -152,26 +140,14 @@
         {
             "package": "swiftmailer/swiftmailer",
             "version": "dev-master",
-            "source-reference": "19045c3692f6f6ddb4abc5ebfaf3f86f1c57d265",
-            "commit-date": "1343980916"
-        },
-        {
-            "package": "symfony/assetic-bundle",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
+            "source-reference": "e12e4ef3a9d6dd60fb734a01984a6e6627aea764",
+            "commit-date": "1345630910"
         },
         {
             "package": "symfony/assetic-bundle",
             "version": "dev-master",
             "source-reference": "ec3a65d3eab342af9e93a3c21af0ac7b78e01c17",
             "commit-date": "1344507386"
-        },
-        {
-            "package": "symfony/monolog-bundle",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
         },
         {
             "package": "symfony/monolog-bundle",
@@ -194,8 +170,8 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "7a233bc7a6f1a34150a358d223b12c76c1ed1674",
-            "commit-date": "1345572885"
+            "source-reference": "d1be451996e714afe65acd5d1ac946f10e96d46d",
+            "commit-date": "1345914223"
         },
         {
             "package": "twig/extensions",
@@ -212,8 +188,8 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "552143062982fd15a1d6fe5a0cdda1f007212154",
-            "commit-date": "1345489844"
+            "source-reference": "32c4867f68c1bacc758602d602e18a3ac1598c76",
+            "commit-date": "1345916214"
         },
         {
             "package": "twitter/bootstrap",
