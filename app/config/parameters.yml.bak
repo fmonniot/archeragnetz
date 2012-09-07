@@ -1,16 +1,22 @@
 parameters:
-    database_driver:   pdo_mysql
-    database_host:     localhost
-    database_port:     ~
-    database_name:     symfony
-    database_user:     root
-    database_password: ~
+    database_driver: 	pdo_mysql
+    database_host: 	localhost
+    database_port: 	~
+    database_name: 	~
+    database_user: 	~
+    database_password: 	~
 
-    mailer_transport:  smtp
-    mailer_host:       localhost
-    mailer_user:       ~
-    mailer_password:   ~
+    mailer_transport: 	smtp
+    mailer_host: 	localhost
+    mailer_user: 	~
+    mailer_password: 	~
 
-    locale:            en
-    secret:            ThisTokenIsNotSoSecretChangeIt
-    admin_password:    adminPassword
+    locale: 		fr
+    secret: 		ThisTokenIsNotSoSecretChangeIt
+
+    admin_password: 	~
+
+    #Swiftmailer settings in dev environment
+    gmail_username: 	~
+    gmail_password: 	~
+
