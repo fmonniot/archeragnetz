@@ -33,6 +33,21 @@ class EventRepository extends EntityRepository
                 ORDER BY e.dtstart DESC'
             )->setParameter('author', $author);
     }
+    
+    public function findAll()
+    {
+        $query = $this->getEntityManager()->createQuery('
+                            SELECT e, c FROM FMCalendarBundle:Event e
+                            JOIN e.calendar c
+                            ORDER BY e.dtstart DESC'
+                    );
+        
+        try {
+            return $query->getResult();
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            return null;
+        }
+    }
 
     public function findAllPublic()
     {
