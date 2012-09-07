@@ -31,28 +31,56 @@
                             <th style="width:60%">Description</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody>                   
                     {% for event in events %}
-                        <tr>{% if is_granted('ROLE_USER') %}<td class="no-border">{% spaceless %}
-                            {% if event.calendar.name != 'Publique' %}
-                                <i class="icon-warning-sign" style="float:right;" title="Évènement non publique"></i>
-                            {% endif %}{% endspaceless %}</td>{% endif %}
-                            <td>{{ event.dtstart|date('d/m/Y') }}</td>
-                            <td>{{ event.dtstart|date('H:i') }}</td>
-                            <td>{% if event.location %}{{ event.location }}{% else %}<em>Non renseigné</em>{% endif %}</td>
-                            <td>
-                                {% if is_granted('ROLE_USER') %}
-                                <span class="info">{# Information display is currently in progress, coming soon.
-                                    <i class="icon-info-sign" title="Créé le 23 avril 2012 par F. Monniot
-Édité le 31 juin 2012 par F. Monniot"></i>#}
-                                    <a href="{{ path('fm_calendar_event_edit', {'id':event.id}) }}" title="Éditer cet évènement"><i class="icon-edit"></i></a>
-                                </span>
-                                {% endif %}
-                                {{ event.description|raw }}
-                                {% if event.url %}<a href="{{ event.url }}" class="pull-right" title="Plus d'information: {{ event.url }}"><i class="icon-chevron-right"></i></a> {% endif %}
-                            </td>
-                        </tr>
+                        
+                        {% if (event.dtstart|date('Ymd') != "now"|date('Ymd') ) and (
+                                ( (prev_date is not defined) and (event.dtstart|date('Ymd') < "now"|date('Ymd') ) )
+                                or (
+                                  (prev_date is defined) and ( 
+                                      prev_date|date('Ymd')>"now"|date('Ymd') 
+                                    and 
+                                      event.dtstart|date('Ymd')<"now"|date('Ymd') 
+                                    ) 
+                                )
+                              )
+                                 %}
+                            <tr class="today">{% if is_granted('ROLE_USER') %}<td class="no-border"></td>{% endif %}
+                                <td colspan="3">{{ "now"|date("d/m/Y") }}</td>
+                                <td>Aujourd'hui</td></tr>
+                        {% endif %} 
+                        
+                            <tr{% if event.dtstart|date('Ymd') == "now"|date('Ymd') %} class="today"{% endif %}>
+                                {% if is_granted('ROLE_USER') %}<td class="no-border">{% spaceless %}
+                                {% if event.calendar.name != 'Publique' %}
+                                    <i class="icon-warning-sign" style="float:right;" title="Évènement non publique"></i>
+                                {% endif %}{% endspaceless %}</td>{% endif %}
+                                <td>{{ event.dtstart|date('d/m/Y') }}</td>
+                                <td>{{ event.dtstart|date('H:i') }}</td>
+                                <td>{% if event.location %}{{ event.location }}{% else %}<em>Non renseigné</em>{% endif %}</td>
+                                <td>
+                                    {% if is_granted('ROLE_USER') %}
+                                    <span class="info">{# Information display is currently in progress, coming soon.
+                                        <i class="icon-info-sign" title="Créé le 23 avril 2012 par F. Monniot
+    Édité le 31 juin 2012 par F. Monniot"></i>#}
+                                        <a href="{{ path('fm_calendar_event_edit', {'id':event.id}) }}" title="Éditer cet évènement"><i class="icon-edit"></i></a>
+                                    </span>
+                                    {% endif %}
+                                    {{ event.description|raw }}
+                                    {% if event.url %}<a href="{{ event.url }}" class="pull-right" title="Plus d'information: {{ event.url }}"><i class="icon-chevron-right"></i></a> {% endif %}
+                                </td>
+                            </tr>                       
+                       
+                        {% set prev_date = event.dtstart %}
                     {% endfor %}
+                    
+                    {% if (prev_date is defined) and (prev_date|date('Ymd') > "now"|date('Ymd')) %}
+                      <tr class="today">
+                          {% if is_granted('ROLE_USER') %}<td class="no-border"></td>{% endif %}
+                          <td colspan="3">{{ "now"|date("d/m/Y") }}</td>
+                          <td>Aujourd'hui [prev_date={{ prev_date|date() }}, event={{ event.dtstart|date() }}]</td>
+                      </tr>
+                    {% endif %}
                     </tbody>
                 </table>
 

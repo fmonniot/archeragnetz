@@ -31,8 +31,24 @@ body.login {
 
 }
 
-
-table.list td { text-align:justify; }
-table.list td .info{ float:right; margin-left:0.5em; cursor:help; }
+table.list tr {
+  @todayColor: #00B000;
+  &.today {
+    
+    td {
+      border-color: @todayColor;
+      background-color: @todayColor + #BBB;
+    }
+    + tr td { border-color: @todayColor; }
+  }
+  
+  td { 
+    text-align:justify;
+  
+    .info{ float:right; margin-left:0.5em; cursor:help; }
+  
+  }
+  
+}
 
 table td.no-border { border-top:1px; }
