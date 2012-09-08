@@ -23,11 +23,15 @@ class EventController extends Controller
     {
         if ( $this->get('security.context')->isGranted('ROLE_USER') ) {
             $events = $this->getDoctrine()->getRepository('FMCalendarBundle:Event')->findAll();
+            $displayChangelog = true;
         } else {
             $events = $this->getDoctrine()->getRepository('FMCalendarBundle:Event')->findAllPublic();
         }
 
-        return $this->render('FMCalendarBundle:Default:index.html.twig', array('events'=>$events));
+        return $this->render('FMCalendarBundle:Default:index.html.twig',
+                array('events'=>$events,
+                      'display'=>'list',
+                      'show_changelog'=>$displayChangelog));
     }
 
     /**
@@ -38,9 +42,10 @@ class EventController extends Controller
     {
         $events = $this->getDoctrine()->getRepository('FMCalendarBundle:Event')->findAllByAuthor($user);
 
-        return $this->render('FMCalendarBundle:Default:list.html.twig', array(
+        return $this->render('FMCalendarBundle:Default:index.html.twig', array(
             'events'=>$events,
-            'user'=>$user
+            'display'=>'list',
+            'subtitle'=>'Les évènements de '.$user->getFirstname().' '.$user->getSurname().' <small>Qu\'à prévu de faire '.$user->getFirstname().' '.$user->getSurname().' prochainement ?</small>'
         ));
     }
 
