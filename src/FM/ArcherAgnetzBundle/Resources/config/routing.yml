@@ -1,7 +1,3 @@
-fm_archer_agnetz_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: FMArcherAgnetzBundle:Default:index }
-
 fm_archer_agnetz_home:
     pattern:  /accueil
     defaults: { _controller: FMArcherAgnetzBundle:Default:home }

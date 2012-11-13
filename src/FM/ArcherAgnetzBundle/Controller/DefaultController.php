@@ -6,33 +6,28 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
-    {
-        return $this->render('FMArcherAgnetzBundle:Default:index.html.twig', array('name' => $name));
-    }
-
     public function homeAction()
     {
-        return $this->render('FMArcherAgnetzBundle:Default:index.html.twig', array('name' => 'Accueil'));
+        return $this->render('FMArcherAgnetzBundle:Default:home.html.twig');
     }
 
     public function clubLifeAction()
     {
-        return $this->render('FMArcherAgnetzBundle:Default:index.html.twig', array('name' => 'Vie du club'));
+        return $this->render('FMArcherAgnetzBundle:Default:life-club.html.twig');
     }
 
     public function photosAction()
     {
-        return $this->render('FMArcherAgnetzBundle:Default:index.html.twig', array('name' => 'Galerie Photo'));
+        return $this->render('FMArcherAgnetzBundle:Default:photos.html.twig');
     }
 
     public function joinUsAction()
     {
-        return $this->render('FMArcherAgnetzBundle:Default:index.html.twig', array('name' => 'Nous rejoindre'));
+        return $this->render('FMArcherAgnetzBundle:Default:join-us.html.twig');
     }
 
     public function contactAction()
     {
-        return $this->render('FMArcherAgnetzBundle:Default:index.html.twig', array('name' => 'Nous contacter'));
+        return $this->render('FMArcherAgnetzBundle:Default:contact.html.twig');
     }
 }
