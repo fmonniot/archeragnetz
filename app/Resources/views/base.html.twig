@@ -40,19 +40,19 @@
           </button>
           <a class="brand" href="./accueil">ASA Tir à l'arc</a>
           <div class="nav-collapse collapse">
-              <div class="pull-right">
-                  <div class="btn-group">
-                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="icon-user"></i> F. Monniot
-                    <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                    <li><a href="#">Mon profil</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Déconnexion</a></li>
-                    </ul>
-                  </div>
+      <!--  <div class="pull-right">
+              <div class="btn-group">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="icon-user"></i> F. Monniot
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Mon profil</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Déconnexion</a></li>
+                </ul>
               </div>
+            </div> -->
             <ul class="nav">
               <li class="active">
                 <a href="./accueil">Accueil</a>
@@ -78,27 +78,39 @@
     
 <!-- Subhead
 ================================================== -->
+{% block subhead %}
 <div class="jumbotron masthead">
   <div class="container">
-    <img src="img/logo.png" style="float:left;margin-right:2em;height:260px;" />
+  {% image '../app/Resources/public/img/logo.png' output="img/logo.png" %}
+    <img src="{{ asset_url }}" style="float:left;margin-right:2em;height:260px;" />
+  {% endimage %}
     <h1>Archer d'Agnetz</h1>
   </div>
 </div>
-    
+{% endblock subhead %}
+
     <div class="container">
       {% block container %}
-
-        <div class="footer">
-            <p>
-	            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">
-				    <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/fr/80x15.png" />
-			    </a>
-	    Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 France License</a> - Source available on <a href="http://www.github.com/francoismonniot/asacalendar/">GitHub</a>
-            </p>
-        </div>
-      {% endblock container %}
+    {% endblock container %}
     </div> <!-- /container -->
 
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer" style="padding:3px 0;">
+        <div class="container">
+            <div class="pull-right" style="text-align:right;font-size:0.9em;">
+                <ul style="margin:0;" class="footer-links">
+                    <li style="margin-right:2px;"><a href="#">Revenir en haut</a></li>
+                    <li class="muted" style="margin-right:2px;">·</li>
+                    <li style="margin-right:0;"><a href="#">Connexion</a></li>
+                </ul>
+                &copy;2012 ASA Tir à l'arc
+            </div>
+            <h5 style="display:inline;padding-right:0.5em; font-family: Times New Roman;float:left;margin:0;">Le saviez-vous <span style="font-size:21pt;font-style:italic;position:relative;top:4pt;">?</span></h5>
+            <p style="font-size: 0.7em; width: 65%;height:25px; float:left; line-height:13px; margin-top:2px;">Il existe au niveau mondial deux fédérations qui font la promotion du tir à l'arc : la World Archery Federation (WA, ex FITA) et l'International Field Archery Association (IFAA).</p>
+          </div>
+
+    </footer>
 
 
     <!-- Le javascript
@@ -106,7 +118,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
 		{% javascripts
 		    '../app/Resources/public/js/libs/jquery/1.7.2/jquery.min.js'
-		    '../vendor/twitter/bootstrap/js/*.js'
+		    '../app/Resources/public/js/bootstrap.js'
+		    '../app/Resources/public/js/app.js'
 		    '../app/Resources/public/js/libs/wysihtml5/0.3.0/wysihtml5.js'
 		    '../app/Resources/public/js/bootstrap-wysihtml5/core.js'
 		    '../app/Resources/public/js/bootstrap-wysihtml5/editor.js'

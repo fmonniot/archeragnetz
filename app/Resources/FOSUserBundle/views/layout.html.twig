@@ -1,32 +1,15 @@
-<!DOCTYPE html>
+{% extends "::base.html.twig" %}
 
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block subhead %}
+<header class="jumbotron subhead" id="overview" style="padding: 20px 0;">
+  <div class="container">
+    <img src="img/logo.png" style="float:left;margin-right:2em;" />
+    <h1 style="padding:60px 0;">Connexion</h1>
+  </div>
+</header>
+{% endblock subhead %}
 
-{% block head_style %}
-  {% stylesheets filter="less,cssembed,cssrewrite,yui_css" output="style.css"
-         '../app/Resources/public/less/base.less'
-  %}
-    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
-  {% endstylesheets %}
-{% endblock head_style %}
-
-    <link rel="shortcut icon" href="/favicon.ico" />
-
-    <title>Connexion - Agnetz Tir à l'arc</title>
-</head>
-
-<body class="login">
-    <div class="container">
-        <div class="content">
-
-            <div class="page-header main-header">
-	            <h1>Agnetz Tir à l'arc - Calendrier</h1>
-                <h2>Connexion</h2>
-            </div>
-
+{% block container %}
             {% for key, message in app.session.getFlashes() %}
                 <div class="alert {% if key == 'fos_user_success'%}alert-success{% else %}{{ key }}{% endif%}">
                     <a class="close" data-dismiss="alert" href="#">&times;</a>
@@ -35,22 +18,11 @@
             {% endfor %}
 
             {% block content %}
-            <div class="row">
-                <div class="row-fluid">
+            <div class="row-fluid">
+                <div class="span6 offset3" style="margin-top:3em;">
                     {% block fos_user_content %}{% endblock %}
                 </div>
             </div>
             {% endblock content %}
         </div>
-
-        <div class="footer">
-            <p>
-	            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">
-				    <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/fr/80x15.png" />
-			    </a>
-	    Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 France License</a> - Source available on <a href="http://www.github.com/francoismonniot/asacalendar/">GitHub</a>
-            </p>
-        </div>
-    </div> <!-- /container -->
-</body>
-</html>
+{% endblock container %}
