@@ -21,6 +21,8 @@ class EventController extends Controller
      */
     public function indexAction()
     {
+        $displayChangelog = false;
+
         if ( $this->get('security.context')->isGranted('ROLE_USER') ) {
             $events = $this->getDoctrine()->getRepository('FMCalendarBundle:Event')->findAll();
             $displayChangelog = true;
