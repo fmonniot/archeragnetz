@@ -1,3 +1,23 @@
 fm_archer_agnetz_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: FMArcherAgnetzBundle:Default:index }
+
+fm_archer_agnetz_home:
+    pattern:  /accueil
+    defaults: { _controller: FMArcherAgnetzBundle:Default:home }
+
+fm_archer_agnetz_clubLife:
+    pattern:  /vie-du-club
+    defaults: { _controller: FMArcherAgnetzBundle:Default:clubLife }
+
+fm_archer_agnetz_photos:
+    pattern:  /photos
+    defaults: { _controller: FMArcherAgnetzBundle:Default:photos }
+
+fm_archer_agnetz_joinUs:
+    pattern:  /nous-rejoindre
+    defaults: { _controller: FMArcherAgnetzBundle:Default:joinUs }
+    
+fm_archer_agnetz_contact:
+    pattern:  /contact
+    defaults: { _controller: FMArcherAgnetzBundle:Default:contact }
