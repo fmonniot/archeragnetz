@@ -3,5 +3,6 @@ $('.basic-editor').wysihtml5({
 	"lists":false,
 	"html":false,
 	"image":false,
-	"locale":"fr"
+	"locale":"fr",
+	"stylesheets":""
 });

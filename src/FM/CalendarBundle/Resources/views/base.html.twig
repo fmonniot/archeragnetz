@@ -1,14 +1,16 @@
 {% extends "::base.html.twig" %}
 
+{% block subhead %}
+<header class="jumbotron subhead" id="overview" style="padding: 20px 0;">
+  <div class="container">
+    <img src="/img/logo.png" style="float:left;margin-right:2em;" />
+    <h1 style="padding:60px 0;">{% block subhead_title %}Calendrier{% endblock subhead_title %}</h1>
+  </div>
+</header>
+{% endblock subhead %}
+
 {% block container %}
         <div class="content">
-            <div class="page-header main-header">
-	            <div class="btn-toolbar">
-	            {% block page_header_toolbar %}{% endblock page_header_toolbar %}
-	            </div>
-            </div>
-            {% block content %}
-
-            {% endblock content %}
+            {% block content %}{% endblock content %}
         </div>
  {% endblock container %}

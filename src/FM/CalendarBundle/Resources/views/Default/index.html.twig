@@ -1,24 +1,23 @@
 {% extends 'FMCalendarBundle::base.html.twig' %}
 
-{% block page_header_toolbar %}
-                    <div class="btn-group" data-toggle="buttons-radio">
-                        <a href="#{{ path('fm_calendar_homepage', {"display":"calendar"}) }}" class="btn disabled" title="Bientot disponible"><i class="icon-th"></i> Calendrier</a>
-                        <a href="{{ path('fm_calendar_homepage', {"display":"list"}) }}" class="btn active"><i class="icon-th-list"></i> Liste</a>
-                    </div>
-
-	                {% if is_granted('ROLE_USER') %}
-	                <div class="btn-group">
-	                    <a href="{{ path('fm_calendar_event_new') }}" class="btn">Nouveau</a>
-	                </div>
-	                {% endif %}
-	                {{ parent() }}
-{% endblock page_header_toolbar %}
-
 {% block content %}
             <div class="row">
                 <div class="page-header span10 offset1">
                     <h3>{% if subtitle is defined %}{{ subtitle|raw() }}{% else %}Prochains Évènement <small>Que se passe-t-il au club ces prochaines semaines ?</small>{% endif %}</h3>
                 </div>
+                {% if is_granted('ROLE_USER') %}
+                <div class="btn-group span1">
+                    <h5>Affichage :</h5>
+                    <div class="btn-group" data-toggle="buttons-radio">
+                        <a href="#{{ path('fm_calendar_homepage', {"display":"calendar"}) }}" class="btn disabled" title="Bientot disponible"><i class="icon-th"></i> Calendrier</a>
+                        <a href="{{ path('fm_calendar_homepage', {"display":"list"}) }}" class="btn active"><i class="icon-th-list"></i> Liste</a>
+                    </div>
+                        
+                    <h5>Actions :</h5>
+    	            <a href="{{ path('fm_calendar_event_new') }}" class="btn">Nouvel Évènement</a>
+    	            
+    	        </div>{% endif %}
+	
             </div>
             <div class="row">
                 {% if display == 'calendar' %}

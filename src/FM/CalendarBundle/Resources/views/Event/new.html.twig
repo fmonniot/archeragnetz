@@ -15,16 +15,7 @@
 {% endspaceless %}
 {% endblock checkbox_widget %}
 
-{% block page_header_toolbar %}
-	                {% if is_granted('ROLE_USER') %}
-	                <div class="btn-group">
-                        <a href="{{ path('fm_calendar_homepage') }}" class="btn">Retour au Calendrier</a>
-	                </div>
-	                {% endif %}
-	                {{ parent() }}
-{% endblock page_header_toolbar %}
-
-{% block page_header_title %}{{ parent() }}: {% block page_header_title_next %}Nouvel Évènement{% endblock page_header_title_next %}{% endblock page_header_title %}
+{% block subhead_title %}{{ parent() }} <small>Nouvel évènement</small>{% endblock subhead_title %}
 
 {% block content %}
             {% for key, message in app.session.getFlashes() %}
