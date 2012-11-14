@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site Internet du club de tir à l'arc d'agnetz">
+    <meta name="author" content="François Monniot">
+
+
+      <link href="../style.css" type="text/css" rel="stylesheet" media="all" />
+  
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../favicon.ico" />
+
+    <title> ASA Tir à l'arc </title>
+</head>
+
+<body>
+        <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="../accueil.html">ASA Tir à l&#039;arc</a>            <div class="nav-collapse">
+                    <ul class="nav">
+                <li class="first">        <a href="../accueil.html">Accueil</a>        
+    </li>
+
+        <li>        <a href="../vie-du-club.html">Vie du club</a>        
+    </li>
+
+        <li>        <a href="../photos.html">Photos</a>        
+    </li>
+
+        <li>        <a href="../nous-rejoindre.html">Nous rejoindre</a>        
+    </li>
+
+        <li class="last">        <a href="../contact.html">Contact</a>        
+    </li>
+
+
+    </ul>
+
+                                    <ul class="nav pull-right">
+                <li class="dropdown first last">        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> François Monniot <i class="caret"></i></a>            <ul class="dropdown-menu menu_level_1">
+                <li class="first">        <a href="index.html">Mon compte</a>        
+    </li>
+
+        <li>        <a href="../calendrier/mes-evenements.html">Mes Évènements</a>        
+    </li>
+
+        <li class="last">        <a href="../index.html">Déconnexion</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+
+    </ul>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview" style="padding: 20px 0;">
+  <div class="container">
+    <img src="../img/logo.png" style="float:left;margin-right:2em;" />
+    <h1 style="padding:60px 0;">Mon profil <small>Changer ce que l'on sait de moi.</small></h1>
+  </div>
+</header>
+
+    <div class="container">
+                              
+            <form action="../profile/index.html"  method="POST" class="fos_user_profile_edit">
+
+                <div class="row">
+                    <fieldset class="span4 offset2">
+                        <legend>Informations de connexion</legend>
+                        <div  id="fos_user_profile_form_username_control_group" class=" control-group"><label for="fos_user_profile_form_username" class=" control-label required">
+    Nom d&#039;utilisateur :
+        
+            </label><div class=" controls" ><input type="text" id="fos_user_profile_form_username" name="fos_user_profile_form[username]" required="required" maxlength="255" pattern=".{2,}"    class=" not-removable" value="asacalendar" /></div></div>
+                        <div  id="fos_user_profile_form_email_control_group" class=" control-group"><label for="fos_user_profile_form_email" class=" control-label required">
+    Adresse e-mail :
+        
+            </label><div class=" controls" ><input type="email" id="fos_user_profile_form_email" name="fos_user_profile_form[email]" required="required"    class=" not-removable" value="asacalendar@mail.com" /></div></div>
+                        <div  id="fos_user_profile_form_current_password_control_group" class=" control-group"><label for="fos_user_profile_form_current_password" class=" control-label required">
+    Mot de passe actuel :
+        
+            </label><div class=" controls" ><input type="password" id="fos_user_profile_form_current_password" name="fos_user_profile_form[current_password]" required="required"    class=" not-removable" /></div></div>
+                    </fieldset>
+                    <fieldset class="span4">
+                        <legend>Informations personnels</legend>
+                        <div  id="fos_user_profile_form_surname_control_group" class=" control-group"><label for="fos_user_profile_form_surname" class=" control-label required">
+    Nom :
+        
+            </label><div class=" controls" ><input type="text" id="fos_user_profile_form_surname" name="fos_user_profile_form[surname]" required="required" maxlength="50" pattern=".{3,}"    class=" not-removable" value="Monniot" /></div></div>
+                        <div  id="fos_user_profile_form_firstname_control_group" class=" control-group"><label for="fos_user_profile_form_firstname" class=" control-label required">
+    Prénom :
+        
+            </label><div class=" controls" ><input type="text" id="fos_user_profile_form_firstname" name="fos_user_profile_form[firstname]" required="required" maxlength="50" pattern=".{3,}"    class=" not-removable" value="François" /></div></div>
+                        <div  id="fos_user_profile_form_mobile_control_group" class=" control-group"><label for="fos_user_profile_form_mobile" class=" control-label optional">
+    Téléphone :
+        <span>(optional)</span></label><div class=" controls" ><input type="text" id="fos_user_profile_form_mobile" name="fos_user_profile_form[mobile]" maxlength="12" pattern="(\+[0-9]{2}|0)[1-7]{1}(([0-9]{2}){4})|((\s[0-9]{2}){4})|((-[0-9]{2}){4})"    class=" not-removable" value="+33123456789" /></div></div>
+                    </fieldset>
+                    <fieldset><input type="hidden" id="fos_user_profile_form__token" name="fos_user_profile_form[_token]"    class=" not-removable" value="efe36d9dc266ba5a4fdfb28a4fe9784246aed28a" /></fieldset>
+                </div>
+                <div class="row">
+                    <div class="form-actions span8 offset2">
+                        <button type="submit" class="btn btn-primary" id="_submit" name="_submit">Mettre à jour</button>
+                        <a href="index.html" class="btn">Annuler</a>
+
+                        <div class="pull-right">
+                            <a href="change-password.html" class="btn btn-warning">Changer de mot de passe</a>                        </div>
+                    </div>
+                </div>
+            </form>
+    </div> <!-- /container -->
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer" style="padding:3px 0;">
+        <div class="container">
+            <div class="pull-right" style="text-align:right;font-size:0.9em;">
+                <ul style="margin:0;" class="footer-links">
+                    <li style="margin-right:2px;"><a href="#">Revenir en haut</a></li>
+                    <li class="muted" style="margin-right:2px;">·</li>
+                    <li style="margin-right:0;"><a href="../login.html">Connexion</a></li>
+                </ul>
+                &copy;2012 ASA Tir à l'arc
+            </div>
+            <h5 style="display:inline;padding-right:0.5em; font-family: Times New Roman;float:left;margin:0;">Le saviez-vous <span style="font-size:21pt;font-style:italic;position:relative;top:4pt;">?</span></h5>
+            <p style="font-size: 0.7em; width: 65%;height:25px; float:left; line-height:13px; margin-top:2px;">Il existe au niveau mondial deux fédérations qui font la promotion du tir à l'arc : la World Archery Federation (WA, ex FITA) et l'International Field Archery Association (IFAA).</p>
+          </div>
+
+    </footer>
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+					<script type="text/javascript" src="../script.js"></script>
+		</body>
+</html>
