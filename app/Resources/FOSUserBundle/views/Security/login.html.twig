@@ -1,5 +1,8 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
+{% block subhead_title %}Connexion{% endblock subhead_title %}
+
+
 {% block fos_user_content %}
             {% if error %}
                 <div class="alert alert-error ">{{ error|trans({}, 'FOSUserBundle') }}</div>

@@ -1,26 +1,15 @@
-{% extends "::base.html.twig" %}
+{% extends "FOSUserBundle::layout.html.twig" %}
 
-{% block page_header_toolbar %}
-	                {% if is_granted('ROLE_USER') %}
-	                <div class="btn-group">
-                        <a href="{{ path('fm_calendar_homepage') }}" class="btn">Retour au Calendrier</a>
-	                </div>
-	                {% endif %}
-	                {{ parent() }}
-{% endblock page_header_toolbar %}
+{% block subhead_title %}Mon profil <small>Changer ce que l'on sait de moi.</small>{% endblock subhead_title %}
 
-{% block content %}
+{% block container %}
             {% for key, message in app.session.getFlashes() %}
                 <div class="alert {% if key == 'fos_user_success'%}alert-success{% else %}{{ key }}{% endif%}">
                     <a class="close" data-dismiss="alert" href="#">&times;</a>
                     {{ message|trans({}, 'FOSUserBundle') }}
                 </div>
             {% endfor %}
-            <div class="row">
-                <div class="page-header span10 offset1">
-                    <h3>Mon profil <small>Que connait-on de moi ?</small></h3>
-                </div>
-            </div>
+            
             <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
 
                 <div class="row">
@@ -50,4 +39,4 @@
                     </div>
                 </div>
             </form>
-{% endblock content %}
+{% endblock container %}
