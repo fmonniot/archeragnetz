@@ -39,11 +39,13 @@ class NavbarMenuBuilder extends AbstractNavbarMenuBuilder
         $menu->setChildrenAttribute('class', 'nav pull-right');
 
         if ($this->isLoggedIn) {
-            
-            $profile = $this->createDropdownMenuItem($menu, '<i class="icon-user"></i> ' . $this->securityContext->getToken()->getUsername(),
-                                                     true, array('icon'=>'caret'), array('extras' => array('safe_label'=>true)));
-            
+            $user = $this->securityContext->getToken()->getUser();
+            $username = '<i class="icon-user"></i> ' . $user->getSurname() . ' '. $user->getFirstname();
+            $profile = $this->createDropdownMenuItem($menu, $username, true, array('icon'=>'caret'),
+                                     array('extras' => array('safe_label'=>true)));
+
             $profile->addChild('Mon compte', array('route' => 'fos_user_profile_show'));
+            $profile->addChild('Mes Évènements', array('route' => 'fm_calendar_my_events'));
             $profile->addChild('Déconnexion', array('route' => 'fos_user_security_logout'));
         }
 
