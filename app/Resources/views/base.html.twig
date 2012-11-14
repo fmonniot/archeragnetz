@@ -30,52 +30,8 @@
 <body>
         <!-- Navbar
     ================================================== -->
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="./accueil">ASA Tir à l'arc</a>
-          <div class="nav-collapse collapse">
-      <!--  <div class="pull-right">
-              <div class="btn-group">
-                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                  <i class="icon-user"></i> F. Monniot
-                  <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Mon profil</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Déconnexion</a></li>
-                </ul>
-              </div>
-            </div> -->
-            <ul class="nav">
-              <li class="active">
-                <a href="./accueil">Accueil</a>
-              </li>
-              <li class="">
-                <a href="./vie-du-club">Vie du Club</a>
-              </li>
-              <li class="">
-                <a href="./photos">Photos</a>
-              </li>
-              <li class="">
-                <a href="./nous-rejoindre">Nous Rejoindre</a>
-              </li>
-              <li class="">
-                <a href="./contact">Contact</a>
-              </li>
-              
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    
+    {% block navbar %}{{ mopa_bootstrap_navbar('frontendNavbar') }}{% endblock navbar %}
+
 <!-- Subhead
 ================================================== -->
 {% block subhead %}
@@ -102,7 +58,7 @@
                 <ul style="margin:0;" class="footer-links">
                     <li style="margin-right:2px;"><a href="#">Revenir en haut</a></li>
                     <li class="muted" style="margin-right:2px;">·</li>
-                    <li style="margin-right:0;"><a href="#">Connexion</a></li>
+                    <li style="margin-right:0;"><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
                 </ul>
                 &copy;2012 ASA Tir à l'arc
             </div>

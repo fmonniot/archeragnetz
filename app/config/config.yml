@@ -122,6 +122,7 @@ mopa_bootstrap:
         show_legend: false
         show_child_legend: false
         error_type: block
+    navbar: ~
 
 fos_user:
     db_driver:     orm

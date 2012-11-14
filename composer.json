@@ -24,7 +24,9 @@
         "stof/doctrine-extensions-bundle":"dev-master",
 
         "friendsofsymfony/user-bundle": "*",
-        "mopa/bootstrap-bundle": "dev-master"
+        "mopa/bootstrap-bundle": "dev-master",
+        "knplabs/knp-paginator-bundle": "dev-master",
+        "knplabs/knp-menu-bundle": "1.1.*"
     },
     "scripts": {
         "post-install-cmd": [
