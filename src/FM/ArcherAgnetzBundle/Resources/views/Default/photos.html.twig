@@ -1,78 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>ASA Tir à l'arc</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+{% extends "::base.html.twig" %}
 
-    <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="css/docs.css" rel="stylesheet"> 
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-  </head>
-
-  <body data-spy="scroll" data-target=".bs-docs-sidebar">
-
-    <!-- Navbar
-    ================================================== -->
-    <div class="navbar navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="./accueil">ASA Tir à l'arc</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="">
-                <a href="./accueil">Accueil</a>
-              </li>
-              <li class="">
-                <a href="./vie-du-club">Vie du Club</a>
-              </li>
-              <li class="active">
-                <a href="./photos">Photos</a>
-              </li>
-              <li class="">
-                <a href="./nous-rejoindre">Nous Rejoindre</a>
-              </li>
-              <li class="">
-                <a href="./contact">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-<!-- Subhead
-================================================== -->
+{% block subhead %}
 <header class="jumbotron subhead" id="overview" style="padding: 20px 0;">
   <div class="container">
     <img src="img/logo.png" style="float:left;margin-right:2em;" />
     <h1 style="padding:60px 0;">Galerie Photo</h1>
   </div>
 </header>
+{% endblock subhead %}
 
-
-  <div class="container">
-
+{% block container %}
     <!-- Docs nav
     ================================================== -->
     <div class="row">
@@ -98,36 +35,4 @@
         
       </div>
     </div>
-
-  </div>
-
-
-
-    <!-- Footer
-    ================================================== -->
-    <footer class="footer" style="padding:3px;">
-        <div class="container">
-            <div class="pull-right" style="text-align:right;font-size:0.9em;">
-                <ul style="margin:0;" class="footer-links">
-                    <li style="margin-right:2px;"><a href="#">Revenir en haut</a></li>
-<!--                    <li class="muted" style="margin-right:2px;">·</li>
-                    <li style="margin-right:0;"><a href="#">Mentions légales</a></li>
--->                </ul>
-                &copy;2012 ASA Tir à l'arc
-            </div>
-            <h5 style="display:inline;padding-right:0.5em; font-family: Times New Roman;float:left;margin:0;">Le saviez-vous <span style="font-size:21pt;font-style:italic;position:relative;top:4pt;">?</span></h5>
-            <p style="font-size: 0.7em; width: 65%;height:25px; float:left; line-height:13px; margin-top:2px;">Il existe au niveau mondial deux fédérations qui font la promotion du tir à l'arc : la World Archery Federation (WA, ex FITA) et l'International Field Archery Association (IFAA).</p>
-          </div>
-
-    </footer>
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/app.js"></script>
-
-  </body>
-</html>
-
+{% endblock container %}
