@@ -40,7 +40,7 @@ class NavbarMenuBuilder extends AbstractNavbarMenuBuilder
 
         if ($this->isLoggedIn) {
             $user = $this->securityContext->getToken()->getUser();
-            $username = '<i class="icon-user"></i> ' . $user->getSurname() . ' '. $user->getFirstname();
+            $username = '<i class="icon-user"></i> ' . $user->getFirstname() . ' '. $user->getSurname();
             $profile = $this->createDropdownMenuItem($menu, $username, true, array('icon'=>'caret'),
                                      array('extras' => array('safe_label'=>true)));
 
