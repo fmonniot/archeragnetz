@@ -21,19 +21,16 @@ class EventController extends Controller
      */
     public function indexAction()
     {
-        $displayChangelog = false;
 
         if ( $this->get('security.context')->isGranted('ROLE_USER') ) {
             $events = $this->getDoctrine()->getRepository('FMCalendarBundle:Event')->findAll();
-            $displayChangelog = true;
         } else {
             $events = $this->getDoctrine()->getRepository('FMCalendarBundle:Event')->findAllPublic();
         }
 
         return $this->render('FMCalendarBundle:Default:index.html.twig',
                 array('events'=>$events,
-                      'display'=>'list',
-                      'show_changelog'=>$displayChangelog));
+                      'display'=>'list'));
     }
 
     /**

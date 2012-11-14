@@ -27,8 +27,4 @@
                     {% include 'FMCalendarBundle:Default:list.html.twig' %}
                 {% endif %}
             </div>
-            {# Remove or not remove : That is the question #}
-            {% if is_granted('ROLE_USER') and show_changelog|default(false) %}
-                {% include 'FMCalendarBundle:Default:changelog.html.twig' %}
-            {% endif %}
         {% endblock content %}
