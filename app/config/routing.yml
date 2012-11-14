@@ -27,3 +27,11 @@ fm_notification:
 
 fm_calendar:
     resource: "@FMCalendarBundle/Resources/config/routing.yml"
+    prefix:   /calendrier
+    
+app_root:
+    pattern: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: fm_archer_agnetz_home
+        permanent: true # this is for 301
