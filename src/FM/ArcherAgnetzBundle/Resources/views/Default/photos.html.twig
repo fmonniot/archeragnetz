@@ -28,7 +28,17 @@
           <p class="lead">Vous pourrez bientôt retrouver tout ces moments qui vous ont marqué !</p>
           <div class="row-fluid">
             <div class="span12">
-            
+              <div id="myCarousel" class="carousel slide">
+                 <div class="carousel-inner">
+                 <!-- Carousel items -->
+                {% for no in 10..17 %}
+                  <div class="item{% if loop.first %} active{% endif %}"><img src="/images/{{no}}-1.JPG" alt="photo{{no}}"/></div>
+                {% endfor %}
+                </div>
+                <!-- Carousel nav -->
+                <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+              </div>
             </div>
           </div>
         </section>
