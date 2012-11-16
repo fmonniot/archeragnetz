@@ -9,9 +9,10 @@
 
 
 {% block head_style %}
-  {% stylesheets filter="cssembed,cssrewrite,yui_css" output="style.css"
+  {% stylesheets filter="cssembed,cssrewrite,less,yui_css" output="style.css"
          '../app/Resources/public/css/bootstrap.css'
          '../app/Resources/public/css/*'
+         '../app/Resources/public/less/*'
   %}
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
   {% endstylesheets %}
