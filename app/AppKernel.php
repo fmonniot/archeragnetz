@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new FM\CalendarBundle\FMCalendarBundle(),
             new FM\NotificationBundle\FMNotificationBundle(),
             new FM\ArcherAgnetzBundle\FMArcherAgnetzBundle(),
+            new FM\UserBundle\FMUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

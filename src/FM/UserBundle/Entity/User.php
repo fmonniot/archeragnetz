@@ -1,6 +1,6 @@
 <?php
 // src/FM/UserBundle/Entity/User.php
-namespace FM\CalendarBundle\Entity;
+namespace FM\UserBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;

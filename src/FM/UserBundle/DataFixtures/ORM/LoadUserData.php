@@ -1,7 +1,7 @@
 <?php
 // src/FM/CalendarBundle/DataFixtures/ORM/LoadUserData.php
 
-namespace FM\CalendarBundle\DataFixtures\ORM;
+namespace FM\UserBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;

@@ -87,7 +87,7 @@ class Event
     /**
      *
      * @var User $created_by
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="events")
+     * @ORM\ManyToOne(targetEntity="FM\UserBundle\Entity\User", inversedBy="events")
      */
     private $created_by;
 
@@ -102,7 +102,7 @@ class Event
     /**
      *
      * @var User $updated_by
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="events")
+     * @ORM\ManyToOne(targetEntity="FM\UserBundle\Entity\User", inversedBy="events")
      */
     private $updated_by;
 

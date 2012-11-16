@@ -127,10 +127,10 @@ mopa_bootstrap:
 fos_user:
     db_driver:     orm
     firewall_name: main
-    user_class:    FM\CalendarBundle\Entity\User
+    user_class:    FM\UserBundle\Entity\User
     registration:
         form:
-            type: fm_calendar_registration
+            type: fm_user_registration
     profile:
         form:
-            type: fm_calendar_profile
+            type: fm_user_profile

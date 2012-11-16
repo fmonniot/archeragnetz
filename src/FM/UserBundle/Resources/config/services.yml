@@ -1,0 +1,12 @@
+services:
+    fm_calendar.registration.form.type:
+        class:  FM\CalendarBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: fm_calendar_registration }
+
+    fm_calendar.profile.form.type:
+        class:  FM\CalendarBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: fm_calendar_profile }

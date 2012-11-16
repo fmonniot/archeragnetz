@@ -1,6 +1,6 @@
 <?php
-// src/FM/CalendarBundle/Form/Type/RegistrationFormType.php
-namespace FM\CalendarBundle\Form\Type;
+// src/FM/UserBundle/Form/Type/RegistrationFormType.php
+namespace FM\UserBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
@@ -18,6 +18,6 @@ class RegistrationFormType extends BaseType
 
     public function getName()
     {
-        return 'fm_calendar_registration';
+        return 'fm_user_registration';
     }
 }
