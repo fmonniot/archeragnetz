@@ -1,6 +1,7 @@
 <?php
 namespace FM\ArcherAgnetzBundle\Menu;
 
+use Knp\Menu\MenuItem;
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContextInterface;
@@ -24,18 +25,12 @@ class NavbarMenuBuilder extends AbstractNavbarMenuBuilder
         $menu = $this->factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav');
 
-        if( $this->securityContext->isGranted('ROLE_USER')) {
-            $this->addAdminMenu($menu);
-        } else {
-        }
-        
         $menu->addChild('Accueil', array('route' => 'fm_archer_agnetz_home'));
         $menu->addChild('Vie du club', array('route' => 'fm_archer_agnetz_clubLife'));
         $menu->addChild('Photos', array('route' => 'fm_archer_agnetz_photos'));
-        $menu->addChild('Calendrier', array('route' => 'fm_calendar_homepage'));
         $menu->addChild('Nous rejoindre', array('route' => 'fm_archer_agnetz_joinUs'));
         $menu->addChild('Contact', array('route' => 'fm_archer_agnetz_contact'));
-        
+
         return $menu;
     }
 
@@ -57,13 +52,5 @@ class NavbarMenuBuilder extends AbstractNavbarMenuBuilder
 
 
         return $menu;
-    }
-    
-    protected function addAdminMenu(MenuItem $menu)
-    {
-        $admin = $this->createDropdownMenuItem($menu, 'Administration', true, array('icon'=>'caret'));
-//         $admin->addChild('Manage', array());
-
-        $this->addDivider($menu, true);
     }
 }
