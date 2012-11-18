@@ -44,6 +44,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $user->setMobile('+33123456789');
 
         $user->setEnabled(true);
+        $user->addRole('ROLE_ADMIN');
 
         $userManager->updateUser($user);
 
