@@ -1,23 +1,23 @@
 fm_user_invit:
     pattern:  /admin/invitation
-    defaults: { _controller: 'FMUserBundle:Invitation:index' }
+    defaults: { _controller: 'fm_user.controller.invitation:indexAction' }
     requirements:
         _method:  GET
 
 fm_user_invit_send:
     pattern:   /admin/invitation/send
-    defaults: { _controller: 'FMUserBundle:Invitation:send' }
+    defaults: { _controller: 'fm_user.controller.invitation:sendAction' }
     requirements:
         _method:  POST
 
 fm_user_invit_show:
     pattern:  /admin/invitation/{id}/show
-    defaults: { _controller: 'FMUserBundle:Invitation:show' }
+    defaults: { _controller: 'fm_user.controller.invitation:showAction' }
     requirements:
         _method: POST
         
 fm_user_invit_delete:
     pattern:  /admin/invitation/{id}/delete
-    defaults: { _controller: 'FMUserBundle:Invitation:delete' }
+    defaults: { _controller: 'fm_user.controller.invitation:deleteAction' }
     requirements:
         _method: POST

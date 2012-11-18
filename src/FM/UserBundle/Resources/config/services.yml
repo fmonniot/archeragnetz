@@ -10,3 +10,8 @@ services:
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: fm_user_profile }
+
+    fm_user.controller.invitation:
+        class: FM\UserBundle\Controller\InvitationController
+        scope: request
+        arguments: ['@doctrine.orm.entity_manager', '@request', '@templating', '@router']
