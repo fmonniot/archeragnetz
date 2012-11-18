@@ -214,7 +214,7 @@ class Event
      * @param  FM\CalendarBundle\Entity\Calendar $calendar
      * @return Event
      */
-    public function setCalendar(\FM\CalendarBundle\Entity\Calendar $calendar = null)
+    public function setCalendar($calendar = null)
     {
         $calendar->addEvent($this);
         $this->calendar = $calendar;
@@ -340,7 +340,7 @@ class Event
      * @param  FM\CalendarBundle\Entity\User $createdBy
      * @return Event
      */
-    public function setCreatedBy(\FM\CalendarBundle\Entity\User $createdBy = null)
+    public function setCreatedBy($createdBy = null)
     {
         $this->created_by = $createdBy;
 
@@ -363,7 +363,7 @@ class Event
      * @param  FM\CalendarBundle\Entity\User $updatedBy
      * @return Event
      */
-    public function setUpdatedBy(\FM\CalendarBundle\Entity\User $updatedBy = null)
+    public function setUpdatedBy($updatedBy = null)
     {
         $this->updated_by = $updatedBy;
 
