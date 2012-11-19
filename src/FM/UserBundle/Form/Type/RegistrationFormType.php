@@ -14,7 +14,9 @@ class RegistrationFormType extends BaseType
         $builder->add('surname');
         $builder->add('firstname');
         $builder->add('mobile');
+        $builder->add('invitation', 'fm_user_invitation_type');
     }
+
 
     public function getName()
     {

@@ -15,3 +15,12 @@ services:
         class: FM\UserBundle\Controller\InvitationController
         scope: request
         arguments: ['@doctrine.orm.entity_manager', '@request', '@templating', '@router']
+
+    fm_user.invitation.form.type:
+        class: FM\UserBundle\Form\Type\InvitationFormType
+        arguments: ['@fm_user.invitation.form.data_transformer']
+        tags: [{ name: "form.type", alias: "fm_user_invitation_type" }]
+
+    fm_user.invitation.form.data_transformer:
+        class: FM\UserBundle\Form\DataTransformer\InvitationToCodeTransformer
+        arguments: ['@doctrine.orm.entity_manager']
