@@ -66,6 +66,13 @@ class User extends BaseUser
       */
      private $address;
 
+     /**
+      * @ORM\OneToOne(targetEntity="Invitation", inversedBy="user")
+      * @ORM\JoinColumn(referencedColumnName="code")
+      * @Assert\NotNull(message="Votre code d'invitation n'est pas valide.")
+      */
+     private $invitation;
+     
     public function __construct()
     {
         parent::__construct();
@@ -173,5 +180,27 @@ class User extends BaseUser
     public function getAddress()
     {
         return $this->address;
+    }
+
+    /**
+     * Set invitation
+     * 
+     * @param Invitation $invitation
+     * @return \FM\UserBundle\Entity\User
+     */
+    public function setInvitation(Invitation $invitation)
+    {
+        $this->invitation = $invitation;
+        return $this;
+    }
+    
+    /**
+     * Get invitation
+     * 
+     * @return Invitation
+     */
+    public function getInvitation()
+    {
+        return $this->invitation;
     }
 }
