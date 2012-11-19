@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fmuser_user")
+ * @ORM\Table(name="users")
  */
 class User extends BaseUser
 {
